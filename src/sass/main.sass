@@ -82,10 +82,11 @@ a
 	width: 50px
 	height: 50px
 	background-color: transparent
+	position: relative
 	border: none
 	cursor: pointer
 	outline: none
-	z-index: 9
+	z-index: 10000000
 	+media-breakpoint-down(lg)
 		display: block
 	+media-breakpoint-down(sm)
@@ -128,6 +129,7 @@ a
 	top: 0
 	left: 0
 	width: 100%
+	z-index: 10
 	.btn
 		padding-left: 50px
 		background-image: url(../img/phone.svg)
@@ -137,7 +139,7 @@ a
 	+media-breakpoint-down(lg)
 		padding: 20px 0
 		.btn
-			padding: 15px
+			padding: 15px 15px 15px 50px
 			font-size: em(16)
 	+media-breakpoint-down(sm)
 		background-color: $white
@@ -165,11 +167,10 @@ a
 			background-color: $blue
 			position: absolute
 			width: 100%
-			z-index: 2
 			top: 0
 			right: -100%
 			transition: all .2s ease-in-out
-			z-index: 1
+			z-index: 9999
 			&.open
 				right: 0
 		ul
@@ -292,6 +293,7 @@ a
 				width: 100%
 				height: 100%
 				transition: all .25s ease
+				z-index: -1
 			&:hover
 				&:before
 					left: 8px
@@ -306,6 +308,9 @@ a
 	height: 100vh
 	background-size: cover
 	background-position: center top
+	+media-breakpoint-down(xs)
+		padding-top: 240px
+		background-position: center top 200px
 	&__block
 		height: 100%
 		display: flex
@@ -317,13 +322,21 @@ a
 		line-height: 1.4
 		font-style: italic
 		font-weight: bold
+		+media-breakpoint-down(xs)
+			margin: 0 auto
 		span
 			font-size: 3.125vmax
 			letter-spacing: -0.02em
+			+media-breakpoint-down(xs)
+				width: 100%
+				font-size: em(22)
 		strong
 			display: block
 			font-size: 2.08vmax
 			padding: 0 20px
+			+media-breakpoint-down(xs)
+				font-size: em(16)
+				padding: 0 10px
 	ul
 		padding: 0
 		margin: 50px 0 60px
@@ -336,12 +349,22 @@ a
 			background-position: left center
 			text-transform: uppercase
 			line-height: em(30)
+			+media-breakpoint-down(xs)
+				background-size: 20px
+				padding-left: 30px
 	.paral-wrap
 		height: 115px
+		@media (max-width: 1600px)
+			height: 85px
+	&__btn-wrap
+		+media-breakpoint-down(xs)
+			flex-direction: column
 	&-free
 		text-transform: uppercase
 		padding: 10px 40px
 		height: 115px
+		@media (max-width: 1600px)
+			height: 85px
 		span
 			font-size: em(50)
 			line-height: 1
@@ -354,21 +377,30 @@ a
 	&-video
 		text-decoration: none
 		margin-left: 70px
-		margin-top: -20px
+		margin-top: -30px
+		+media-breakpoint-down(lg)
+			margin-left: 6%
+		+media-breakpoint-down(xs)
+			margin-top: 10px
 		&:hover
 			color: $text
 			span
 				border-color: transparent
 		img
 			margin: 0 auto
+			width: 130px
+			+media-breakpoint-down(lg)
+				width: 100px
 		span
 			font-size: em(12)
 			display: block
-			margin-top: -35px
+			margin-top: -25px
 			border-bottom: 1px solid $text
 			text-transform: uppercase
 			line-height: 1.2
 			transition: all .25s ease
+			+media-breakpoint-down(lg)
+				margin-top: -15px
 
 
 	
