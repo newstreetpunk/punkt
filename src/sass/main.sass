@@ -6,7 +6,7 @@
 	color: #666
 
 ::selection
-	background-color: $blue
+	background-color: $yellow
 	color: #fff
 
 body input:focus:required:invalid,
@@ -120,6 +120,35 @@ a
 
 .text-right
 	text-align: right
+
+section
+	padding: 70px 0
+	h2
+		font-size: em(40)
+		text-transform: uppercase
+		line-height: 1.4
+		margin-bottom: 45px
+		text-align: center
+
+.sect-left, .sect-right
+	width: 50%
+
+.sect-bg
+	background-size: cover
+	background-position: center
+	position: relative
+	z-index: 1
+	&:before
+		content: ''
+		display: block
+		position: absolute
+		top: 0
+		right: 0
+		bottom: 0
+		left: 0
+		background-color: rgba($tr-blue, .9)
+		z-index: -1
+
 
 // HEADER
 .header
@@ -407,6 +436,13 @@ a
 				margin-top: -15px
 
 
+// CALLBACK
+.callback
+	h2
+		text-align: left
+	p
+		font-size: em(25)
+		font-weight: normal
 	
 // FOOTER
 .footer
