@@ -2,6 +2,8 @@
 
 // ≤1200px
 +media-breakpoint-down(lg)
+	html
+		font-size: 90%
 
 // ≤992px
 +media-breakpoint-down(md)
@@ -23,7 +25,20 @@
 // ≥992px
 +media-breakpoint-up(lg)
 
-// ≥1200px
+// ≤1200px
 +media-breakpoint-up(xl)
+	html
+		font-size: 95%
+
+@media (min-width: 1600px) 
+	html
+		font-size: 100%
+	body 
+		font-size: em(20)
+	.container 
+		max-width: 1560px
+	.header
+		.container
+			max-width: 90%
 	
 
