@@ -543,11 +543,21 @@ input[type="checkbox"]
 	
 // FOOTER
 .footer
-	display: none
-	background-color: $text
+	background-color: $dark-blue
 	color: $white
 	padding: 30px 0
+	font-weight: bold
 	&__wrap
-		text-align: center
+		+media-breakpoint-down(xs)
+			flex-direction: column
+			justify-content: center
+	a
+		color: $white
+		&:hover
+			text-decoration: underline
+		+media-breakpoint-down(xs)
+			display: block
+			margin-top: 10px
+		
 
 @import "media" // Всегда в конце
