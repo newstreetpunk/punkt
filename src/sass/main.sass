@@ -125,6 +125,8 @@ a
 .header
 	padding: 40px 0
 	background-color: transparent
+	box-shadow: 0 10px 50px transparent
+	transition: all .2s
 	position: fixed
 	top: 0
 	left: 0
@@ -229,6 +231,7 @@ a
 		text-align: center
 		margin-right: 30px
 		color: $white
+		transition: all .2s
 		+media-breakpoint-down(lg)
 			color: $text
 		+media-breakpoint-down(xs)
@@ -240,6 +243,7 @@ a
 			white-space: nowrap
 			font-size: em(30)
 			line-height: 1.2
+			transition: all .2s
 			+media-breakpoint-down(md)
 				font-size: em(20)
 			&:hover
