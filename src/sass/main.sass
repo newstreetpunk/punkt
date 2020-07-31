@@ -82,6 +82,7 @@ a
 	border: none
 	cursor: pointer
 	outline: none
+	z-index: 9
 	+media-breakpoint-down(lg)
 		display: block
 	+media-breakpoint-down(sm)
@@ -101,14 +102,14 @@ a
 		transition: all .2s ease-in-out
 	&.active span
 		&:first-child
-			background-color: $blue
+			background-color: $red
 			transform: rotate(45deg)
 			position: relative
 			top: 5px
 		&:nth-child(2)
 			opacity: 0
 		&:last-child
-			background-color: $blue
+			background-color: $red
 			transform: rotate(-45deg)
 			position: relative
 			top: -5px
@@ -121,7 +122,7 @@ a
 	top: 0
 	left: 0
 	width: 100%
-	+media-breakpoint-down(md)
+	+media-breakpoint-down(lg)
 		padding: 20px 0
 		.btn
 			padding: 15px
@@ -149,13 +150,14 @@ a
 		// width: 100%
 		margin: 0 auto
 		+media-breakpoint-down(lg)
-			background-color: #f1f1f1
+			background-color: $blue
 			position: absolute
 			width: 100%
 			z-index: 2
-			top: 80px
+			top: 0
 			right: -100%
 			transition: all .2s ease-in-out
+			z-index: 1
 			&.open
 				right: 0
 		ul
@@ -168,9 +170,11 @@ a
 			+media-breakpoint-up(xl)
 				justify-content: flex-start
 			+media-breakpoint-down(lg)
-				height: calc(100vh - 80px)
+				height: 100vh
 				flex-direction: column
 				overflow-y: auto
+				align-items: center
+				justify-content: center
 			li
 				margin: 0 25px
 				a
@@ -188,14 +192,18 @@ a
 						text-transform: uppercase
 						font-size: em(15)
 						line-height: em(30)
+						padding: 8px 0
+						text-decoration: none
 						&:hover
-							background-color: #ccc
+							background-color: $light-blue
 				&.active
 					a
 						color: $text
 						text-decoration: underline
 						+media-breakpoint-down(lg)
-							background-color: #ccc
+							background-color: $light-blue
+							text-decoration: none
+							color: $white
 				a
 					color: $text
 					&:hover
