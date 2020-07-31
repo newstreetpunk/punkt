@@ -14,10 +14,10 @@
 
 body input:focus:required:invalid,
 body textarea:focus:required:invalid
-	color: $red
+	border: 1px solid $red
 body input:required:valid,
 body textarea:required:valid
-	color: $green
+	border: 1px solid $green
 
 body
 	position: relative
@@ -189,7 +189,7 @@ label
 		text-transform: uppercase
 		margin-bottom: 5px
 input
-	border: none
+	border: 1px solid transparent
 	outline: $yellow
 	padding: 12px
 	font-size: em(20)
@@ -434,7 +434,7 @@ input[type="checkbox"]
 			padding-left: 40px
 			background-image: url(../img/check.svg)
 			background-repeat: no-repeat
-			background-size: 30px
+			background-size: 25px
 			background-position: left center
 			text-transform: uppercase
 			line-height: em(30)
