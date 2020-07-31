@@ -540,6 +540,47 @@ input[type="checkbox"]
 			+media-breakpoint-down(sm)
 				margin: 20px 0
 
+// CONTACTS
+.contacts
+	display: flex
+	padding: 0
+	min-height: 400px
+	color: $white
+	a
+		color: $white
+	h2
+		text-align: left
+	&__info
+		width: 45%
+		padding: 50px 0
+		padding-left: 10%
+		font-size: em(22)
+		@extend .gradient-2
+		.btn
+			color: $text
+			font-weight: bold
+			font-size: em(16)
+	&__item
+		margin-bottom: 30px
+		small
+			display: block
+			font-weight: normal
+	&__map
+		width: 55%
+		background-image: url(../img/map.jpg)
+		background-size: cover
+		background-position: center
+		background-repeat: no-repeat
+
+.social__list
+	margin-top: 10px
+	margin-bottom: 40px
+	a
+		img
+			max-width: 40px
+			width: 100%
+			height: auto
+			margin-right: 30px
 	
 // FOOTER
 .footer
