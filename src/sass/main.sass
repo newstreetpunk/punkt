@@ -82,8 +82,12 @@ a
 	border: none
 	cursor: pointer
 	outline: none
-	+media-breakpoint-down(md)
+	+media-breakpoint-down(lg)
 		display: block
+	+media-breakpoint-down(sm)
+		position: absolute
+		right: 15px
+		top: 15px
 	&:focus
 		outline: none
 	span
@@ -117,10 +121,26 @@ a
 	top: 0
 	left: 0
 	width: 100%
+	+media-breakpoint-down(md)
+		padding: 20px 0
+		.btn
+			padding: 15px
+			font-size: em(16)
+	+media-breakpoint-down(sm)
+		background-color: $white
+	.container
+			max-width: 95%
+	&__wrap
+		+media-breakpoint-down(sm)
+			flex-direction: column
 	&__logo
 		max-width: 190px
 		width: 100%
 		display: block
+		+media-breakpoint-down(md)
+			max-width: 150px
+		+media-breakpoint-down(sm)
+			margin-bottom: 20px
 		img
 			width: 100%
 			height: auto
@@ -128,7 +148,7 @@ a
 		// max-width: 50%
 		// width: 100%
 		margin: 0 auto
-		+media-breakpoint-down(md)
+		+media-breakpoint-down(lg)
 			background-color: #f1f1f1
 			position: absolute
 			width: 100%
@@ -147,7 +167,7 @@ a
 			margin: 0
 			+media-breakpoint-up(xl)
 				justify-content: flex-start
-			+media-breakpoint-down(md)
+			+media-breakpoint-down(lg)
 				height: calc(100vh - 80px)
 				flex-direction: column
 				overflow-y: auto
@@ -158,7 +178,7 @@ a
 					font-size: em(15)
 					line-height: em(30)
 					white-space: nowrap
-				+media-breakpoint-down(md)
+				+media-breakpoint-down(lg)
 					width: 100%
 					margin: 0
 					a
@@ -174,29 +194,43 @@ a
 					a
 						color: $text
 						text-decoration: underline
-						+media-breakpoint-down(md)
+						+media-breakpoint-down(lg)
 							background-color: #ccc
 				a
 					color: $text
 					&:hover
 						color: $text
 						text-decoration: underline
+	&__right
+		+media-breakpoint-down(xs)
+			flex-direction: column
 	&__phone
 		text-align: center
 		margin-right: 30px
 		color: $white
+		+media-breakpoint-down(lg)
+			color: $text
+		+media-breakpoint-down(xs)
+			margin-right: 0
+			margin-bottom: 20px
 		a
 			display: block
 			color: $white
 			white-space: nowrap
 			font-size: em(30)
 			line-height: 1.2
+			+media-breakpoint-down(md)
+				font-size: em(20)
 			&:hover
 				text-decoration: underline
+			+media-breakpoint-down(lg)
+				color: $text
 		span
 			white-space: nowrap
 			font-size: em(15)
 			text-transform: uppercase
+			+media-breakpoint-down(md)
+				font-size: em(14)
 
 
 //BANNER
@@ -204,7 +238,7 @@ a
 	background-image: url(../img/banner_bg.jpg)
 	height: 100vh
 	background-size: cover
-	background-position: right center
+	background-position: right top
 
 
 

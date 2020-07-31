@@ -2,8 +2,8 @@
 
 // ≤1200px
 +media-breakpoint-down(lg)
-	// html
-	// 	font-size: 80%
+	html
+		font-size: 80%
 
 // ≤992px
 +media-breakpoint-down(md)
@@ -29,6 +29,9 @@
 +media-breakpoint-up(xl)
 	html
 		font-size: 80%
+	.header
+		&__logo
+			margin-right: 50px
 
 @media (min-width: 1600px) 
 	html
@@ -38,10 +41,10 @@
 	.container 
 		max-width: 1560px
 	.header
-		.container
-			max-width: 90%
 		&__menu
 			ul
 				justify-content: center
+		&__logo
+			margin-right: 0
 	
 
