@@ -3,7 +3,10 @@
 @import "vars"
 
 ::placeholder
-	color: #666
+	color: #c8c8c8
+	text-transform: uppercase
+	font-weight: 900
+	font-size: em(20)
 
 ::selection
 	background-color: $yellow
@@ -149,6 +152,48 @@ section
 		background-color: rgba($tr-blue, .9)
 		z-index: -1
 
+.gradient-2
+	background: linear-gradient(71.7deg, $blue 21.74%, $light-blue 96.81%)
+
+form
+	padding: 50px
+	h3
+		font-size: em(38)
+		text-align: center
+		color: $white
+		text-transform: uppercase
+	small
+		font-size: em(15)
+		align-items: center
+		font-weight: normal
+		color: $white
+		a
+			color: $white
+			&:hover
+				text-decoration: underline
+				color: $white
+label
+	display: block
+	color: $white
+	margin-bottom: 25px
+	p
+		font-size: em(12)
+		text-transform: uppercase
+		margin-bottom: 5px
+input
+	border: none
+	outline: $yellow
+	padding: 10px
+	font-size: em(20)
+	font-weight: 900
+	text-transform: uppercase
+	color: $text
+
+input[type="checkbox"]
+	width: 20px
+	height: 20px
+	cursor: pointer
+	margin-right: 12px
 
 // HEADER
 .header
@@ -440,9 +485,24 @@ section
 .callback
 	h2
 		text-align: left
-	p
-		font-size: em(25)
-		font-weight: normal
+	&-left
+		p
+			font-size: em(25)
+			font-weight: normal
+	form
+		label
+			margin-bottom: 40px
+		input
+			width: 100%
+		input[type="checkbox"]
+			width: 20px
+		button
+			display: block
+			width: 100%
+			text-align: center
+			margin: 60px 0
+			font-weight: 900
+
 	
 // FOOTER
 .footer
