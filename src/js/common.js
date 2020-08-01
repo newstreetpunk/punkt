@@ -44,4 +44,6 @@ jQuery(function($) {
 		customResize();
 	});
 
+	$('.lazyload').lazyload();
+
 });
