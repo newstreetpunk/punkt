@@ -75,7 +75,28 @@ jQuery(function($) {
 		removalDelay: 160,
 		preloader: false,
 
-		fixedContentPos: false
+		fixedContentPos: true
+	});
+
+	$('a[href="#privacy-policy"]').on('click', function(){
+
+		$('.overlay').show();
+		$('.privacy-wrap').show();
+		$('html').css({
+			'margin-right': '17px',
+			'overflow': 'hidden'
+		});
+
+		return false;
+	});
+
+	$('.overlay, .privacy-close').on('click', function(){
+		$('.overlay').hide();
+		$('.privacy-wrap').hide();
+		if ($('#callback_form').is(':hidden')) {
+			$('html').removeAttr('style');
+		}
+		
 	});
 
 });
