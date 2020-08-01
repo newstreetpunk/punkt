@@ -34,7 +34,6 @@ $(function() {
                 balloonContentFooter: this.balloonContentFooter,
                 hintContent: this.hintContent
             }, {
-                minWidth: 200,
                 preset: 'islands#blueCourtIcon',
                 iconColor: '#51C0FF'
             });

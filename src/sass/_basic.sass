@@ -45,6 +45,29 @@ a
 		color: $blue
 		text-decoration: none
 
+.fixed-pos
+	display: flex
+	align-items: center
+	flex-direction: column-reverse
+	padding-bottom: 24px
+	position: fixed
+	height: 200px
+	width: 40px
+	top: 50%
+	left: 0
+	text-transform: uppercase
+	background-color: $yellow
+	transform: translateY(-50%)
+	z-index: 10
+	img
+		max-width: 30px
+		margin-top: 55px
+	span
+		transform: rotate(-90deg)
+		white-space: nowrap
+	&:hover
+		color: $text
+
 // КНОПКИ
 .btn
 	border: none
