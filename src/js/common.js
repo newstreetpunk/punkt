@@ -1,4 +1,73 @@
 jQuery(function($) {
+
+	//E-mail Ajax Send
+	$("form").submit(function() { //Change
+
+		Data = new Date();
+		Year = Data.getFullYear();
+		Month = Data.getMonth() + 1;
+		Day = Data.getDate();
+		Hour = Data.getHours();
+		Min = Data.getMinutes();
+		Sec = Data.getSeconds();
+
+		if (Month < 10) {
+			Month = '0'+Month;
+		}else{
+			Month = Month;
+		}
+
+		var th = $(this);
+		var date = th.find('#date');
+		date.val(Day +'.'+ Month +'.'+ Year +' '+ Hour +':'+ Min +':'+ Sec);
+		var btnSubmit = th.find('input[type="submit"]');
+		btnSubmit.attr("disabled", true);
+		var url = window.location.href;
+		var replUrl = url.replace('?', '&');
+		$.ajax({
+			type: "POST",
+			url: "/mail.php", //Change
+			data: th.serialize() +'&referer=' + replUrl
+		}).done(function( data ) {
+			// console.log( "success data:", data );
+			setTimeout(function() {
+				$.magnificPopup.close();
+				if(data == 'OK'){
+					th.trigger("reset");
+					swal({
+						title: "Спасибо!",
+						text: "Ваше сообщение успешно отправлено. В скором времени мы с Вами свяжемся.",
+						icon: "success",
+						button: false,
+						timer: 3000
+					});
+				}else{
+					swal({
+						title: "Ошибка :(",
+						text: "Что-то пошло не так. Перезагрузите страницу и попробуйте снова.",
+						icon: "error",
+						button: false,
+						timer: 3000
+					});
+				}
+				btnSubmit.removeAttr("disabled");
+			}, 1000);
+		}).fail(function() {
+			setTimeout(function() {
+				$.magnificPopup.close();
+				swal({
+					title: "Ошибка :(",
+					text: "Что-то пошло не так. Перезагрузите страницу и попробуйте снова.",
+					icon: "error",
+					button: false,
+					timer: 3000
+				});
+				btnSubmit.removeAttr("disabled");
+			}, 1000);
+		});
+		return false;
+	});
+	
 	
 	$('.mobile-btn').on('click', function() {
 		$(this).toggleClass('active');
