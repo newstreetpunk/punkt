@@ -31,4 +31,17 @@ jQuery(function($) {
 		});
 	}
 
+	function customResize(){
+		winWidth    = $(window).width();
+		container   = $('.callback .container').width();
+		result      = (winWidth - container) / 2 + 15;
+		contactElem = $('.contacts__info');
+
+		contactElem.css('padding-left', result);
+	}customResize();
+
+	$(window).resize(function(){
+		customResize();
+	});
+
 });

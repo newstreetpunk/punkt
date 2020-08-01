@@ -2,209 +2,7 @@
 @import "libs"
 @import "vars"
 
-::placeholder
-	color: #c8c8c8
-	text-transform: uppercase
-	font-weight: 700
-	font-size: em(20)
-
-::selection
-	background-color: $yellow
-	color: #fff
-
-body input:focus:required:invalid,
-body textarea:focus:required:invalid
-	border: 1px solid $red
-body input:required:valid,
-body textarea:required:valid
-	border: 1px solid $green
-
-body
-	position: relative
-	line-height: 1.6
-	font-family: $font
-	color: $text
-	font-weight: 900
-	min-width: 320px
-	overflow-x: hidden
-
-.hidden
-	display: none
-
-/* Спрятать контент */
-.visually-hidden 
-	position: absolute
-	clip: rect(0 0 0 0)
-	width: 1px
-	height: 1px
-	margin: -1px
-
-img
-	display: block
-	max-width: 100%
-	height: auto
-
-a
-	color: $text
-	text-decoration: none
-	transition: all .25s ease
-	&:hover
-		color: $blue
-		text-decoration: none
-
-// КНОПКИ
-.btn
-	border: none
-	background-color: $yellow
-	color: $text
-	font-size: em(18)
-	padding: 20px
-	line-height: 1
-	text-align: center
-	width: auto
-	cursor: pointer
-	outline: none
-	transition: all .25s ease
-	display: inline-block
-	white-space: nowrap
-	text-transform: uppercase
-	box-shadow: 0px 4px 30px rgba($yellow, 0.7)
-	&:hover
-		background-color: lighten($yellow, 8%)
-		color: $text
-		box-shadow: 0px 4px 15px rgba($yellow, 0.7)
-	&:active
-		background-color: darken($yellow, 5%)
-		color: $text
-		border-style: none
-		
-
-// КНОПКА МЕНЮ
-.mobile-btn
-	display: none
-	width: 50px
-	height: 50px
-	background-color: transparent
-	position: relative
-	border: none
-	cursor: pointer
-	outline: none
-	z-index: 10000000
-	+media-breakpoint-down(lg)
-		display: block
-	+media-breakpoint-down(sm)
-		position: absolute
-		right: 15px
-		top: 15px
-	&:focus
-		outline: none
-	span
-		width: 25px
-		height: 2px
-		background-color: $text
-		display: block
-		margin: 3px auto
-		transform: rotate(0)
-		opacity: 1
-		transition: all .2s ease-in-out
-	&.active span
-		&:first-child
-			background-color: $red
-			transform: rotate(45deg)
-			position: relative
-			top: 5px
-		&:nth-child(2)
-			opacity: 0
-		&:last-child
-			background-color: $red
-			transform: rotate(-45deg)
-			position: relative
-			top: -5px
-
-.text-right
-	text-align: right
-
-section
-	padding: 70px 0
-	+media-breakpoint-down(xs)
-		padding: 50px 0
-	h2
-		font-size: em(40)
-		text-transform: uppercase
-		line-height: 1.4
-		margin-bottom: 45px
-		text-align: center
-		+media-breakpoint-down(md)
-			margin-bottom: 30px
-		+media-breakpoint-down(xs)
-			font-size: em(22)
-			margin-bottom: 20px
-
-.sect-left, .sect-right
-	width: 50%
-
-.sect-bg
-	background-size: cover
-	background-position: center
-	position: relative
-	z-index: 1
-	&:before
-		content: ''
-		display: block
-		position: absolute
-		top: 0
-		right: 0
-		bottom: 0
-		left: 0
-		background-color: rgba($tr-blue, .9)
-		z-index: -1
-
-.gradient-2
-	background: linear-gradient(71.7deg, $blue 21.74%, $light-blue 96.81%)
-
-form
-	h3
-		font-size: em(38)
-		text-align: center
-		color: $white
-		text-transform: uppercase
-		+media-breakpoint-down(xs)
-			font-size: em(24)
-	small
-		font-size: em(15)
-		align-items: center
-		font-weight: normal
-		color: $white
-		a
-			color: $white
-			&:hover
-				text-decoration: underline
-				color: $white
-label
-	display: block
-	color: $white
-	margin-bottom: 25px
-	p
-		font-size: em(12)
-		text-transform: uppercase
-		margin-bottom: 5px
-input
-	border: 1px solid transparent
-	outline: $yellow
-	padding: 12px
-	font-size: em(20)
-	font-weight: 700
-	text-transform: uppercase
-	color: $text
-	line-height: 1
-	+media-breakpoint-down(xs)
-		font-size: em(16)
-
-input[type="checkbox"]
-	width: 20px
-	height: 20px
-	cursor: pointer
-	margin-right: 12px
+@import "basic"
 
 // HEADER
 .header
@@ -341,52 +139,6 @@ input[type="checkbox"]
 			text-transform: uppercase
 			+media-breakpoint-down(md)
 				font-size: em(14)
-
-
-// PARAL
-.paral
-	padding: 15px 40px
-	display: inline-block
-	position: relative
-	z-index: 1
-	&:before
-		content: ''
-		display: block
-		transform: skew(-20deg)
-		position: absolute
-		width: 100%
-		height: 100%
-		left: 0
-		top: 0
-		z-index: -1
-	&.paral-blue
-		color: $white
-		&:before
-			background: $blue2
-	&.paral-yellow
-		color: $text
-		&:before
-			background: $yellow
-	&-wrap
-		display: inline-block
-		position: relative
-		z-index: 1		
-		&.yellow
-			&:before
-				content: ''
-				transform: skew(-20deg)
-				border: 1px solid $yellow
-				position: absolute
-				left: 20px
-				bottom: 15px
-				width: 100%
-				height: 100%
-				transition: all .25s ease
-				z-index: -1
-			&:hover
-				&:before
-					left: 8px
-					bottom: 4px
 
 //BANNER
 .banner
@@ -546,23 +298,34 @@ input[type="checkbox"]
 	padding: 0
 	min-height: 400px
 	color: $white
+	+media-breakpoint-down(md)
+		flex-direction: column
 	a
 		color: $white
 	h2
 		text-align: left
 		font-size: em(34)
+		+media-breakpoint-down(xs)
+			font-size: em(22)
+			margin-bottom: 20px
 	&__info
 		width: 45%
 		padding: 50px 0
 		padding-left: 10%
 		font-size: em(22)
 		@extend .gradient-2
+		+media-breakpoint-down(md)
+			width: 100%
+		+media-breakpoint-down(xs)
+			font-size: em(18)
 		.btn
 			color: $text
 			font-weight: bold
 			font-size: em(16)
 	&__item
 		margin-bottom: 30px
+		+media-breakpoint-down(xs)
+			margin-bottom: 18px
 		small
 			display: block
 			font-weight: bold
@@ -572,6 +335,9 @@ input[type="checkbox"]
 		background-size: cover
 		background-position: center
 		background-repeat: no-repeat
+		+media-breakpoint-down(md)
+			width: 100%
+			height: 400px
 
 .social__list
 	margin-top: 10px
