@@ -46,4 +46,20 @@ jQuery(function($) {
 
 	$('.lazyload').lazyload();
 
+	// MODALS
+	$('.modal-link').click(function(){
+		let th = $(this),
+			id = th.attr('href');
+		$.magnificPopup.open({
+			items: {
+				src: id,
+				type: 'inline',
+				fixedContentPos: true,
+				modal: true,
+				preloader: false
+			}
+		});
+		return false;
+	});
+
 });

@@ -19,7 +19,7 @@
 
 <body>
 	
-	<a href="javascript:void(0)" class="modal-link fixed-pos">
+	<a href="#callback_form" class="modal-link fixed-pos" data-title="Узнать цену">
 		<img src="img/calc.svg" alt="Узнать цену">
 		<span>Узнать цену</span>
 	</a>
@@ -52,7 +52,7 @@
 						<a href="tel:88002229163">8-800-222-91-63</a>
 						<span class="header__phone-text">Звонок бесплатный</span>
 					</div>
-					<a href="javascript:void(0)" class="btn modal-link">Заказать звонок</a>
+					<a href="#callback_form" class="btn modal-link" data-title="Заказать звонок">Заказать звонок</a>
 				</div>
 				<!-- /.header__right -->
 
@@ -83,10 +83,10 @@
 			</ul>
 
 			<div class="banner__btn-wrap d-flex align-items-center">
-				<a href="javascript:void(0)" class="modal-link paral paral-yellow paral-double banner-free"><span>0</span>&nbsp;₽ первый взнос<br> Начните бесплатно!</a>
+				<a href="#callback_form" class="modal-link paral paral-yellow paral-double banner-free" data-title="Начать бесплатно"><span>0</span>&nbsp;₽ первый взнос<br> Начните бесплатно!</a>
 				
 				<a href="javascript:void(0)" class="modal-link video-link banner-video">
-					<img src="img/button-play.svg" alt="ALT">
+					<img src="img/button-play.svg" alt="Play">
 					<span>смотреть видео о компании</span>
 				</a>
 
@@ -175,7 +175,7 @@
 				</div>
 				<!-- /.social__list d-flex -->
 				
-				<a href="javascript:void(0)" class="btn">заказать обратный звонок</a>
+				<a href="#callback_form" class="btn modal-link" data-title="Заказать звонок">заказать обратный звонок</a>
 
 			</div>
 			<!-- /.contacts__info -->
@@ -202,6 +202,41 @@
 		<!-- /.container -->
 	</footer>
 	<!-- /#footer.footer -->
+
+
+	<!-- MODALS -->
+
+	<div class="modal callback-form mfp-hide white-popup-block" id="callback_form">
+		<form>
+
+			<h3>Обратный звонок</h3>
+			<span class="form-subtitle">Оставьте свои данные и мы свяжемся  с Вами</span>
+
+			<input type="hidden" name="Форма" value="С банкротством нельзя медлить">
+			<input type="hidden" name="Дата&nbsp;и&nbsp;время&nbsp;заявки" value="">
+
+			<label>
+				<p>Ваше имя</p>
+				<input type="text" name="Имя" placeholder="Иванов иван">
+			</label>
+
+			<label>
+				<p>Ваш телефон</p>
+				<input type="tel" name="Телефон" placeholder="+7 (999) 999-99-99" required>
+			</label>
+
+			<button type="submit" class="btn">Отправить</button>
+
+			<small class="d-flex">
+				<input type="checkbox" checked>
+				<span>Согласен на <a href="javascript:void(0)">обработку персональных данных</a></span>
+			</small>
+
+
+		</form>
+	</div>
+
+	<!-- MODALS END -->
 
     <script src="js/scripts.min.js"></script>
 
