@@ -20,7 +20,7 @@ jQuery(function($) {
 		var th = $(this);
 		var date = th.find('#date');
 		date.val(Day +'.'+ Month +'.'+ Year +' '+ Hour +':'+ Min +':'+ Sec);
-		var btnSubmit = th.find('input[type="submit"]');
+		var btnSubmit = th.find('button[type="submit"]');
 		btnSubmit.attr("disabled", true);
 		var url = window.location.href;
 		var replUrl = url.replace('?', '&');
@@ -67,7 +67,7 @@ jQuery(function($) {
 		});
 		return false;
 	});
-	
+
 	
 	$('.mobile-btn').on('click', function() {
 		$(this).toggleClass('active');
