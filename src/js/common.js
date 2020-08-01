@@ -48,8 +48,13 @@ jQuery(function($) {
 
 	// MODALS
 	$('.modal-link').click(function(){
-		let th = $(this),
-			id = th.attr('href');
+		let th    = $(this),
+			id    = th.attr('href'),
+			str   = id.replace('#', ''),
+			title = th.data('title');
+		$(id+ ' form').find('h3').text(title);
+
+
 		$.magnificPopup.open({
 			items: {
 				src: id,
@@ -59,7 +64,18 @@ jQuery(function($) {
 				preloader: false
 			}
 		});
+
 		return false;
+	});
+
+	$('.video-link').magnificPopup({
+		disableOn: 700,
+		type: 'iframe',
+		mainClass: 'mfp-fade',
+		removalDelay: 160,
+		preloader: false,
+
+		fixedContentPos: false
 	});
 
 });
