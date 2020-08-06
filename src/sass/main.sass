@@ -382,6 +382,9 @@
 
 // TEAM
 .team
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
+	position: relative
+	z-index: 3
 	h2
 		margin-bottom: 15px
 	&__block
@@ -389,6 +392,7 @@
 		width: 100%
 		flex-wrap: wrap
 		justify-content: center
+		margin: 0 auto
 	&__user
 		width: 25%
 		text-align: center
@@ -531,6 +535,44 @@
 			font-weight: normal
 			text-align: center
 			display: block
+
+// quality
+.quality
+	padding: 0
+	.sect-bg
+		background-size: 50%
+		background-position: right top
+		background-repeat: no-repeat
+	&__block
+		width: 50%
+		padding: 80px 0
+		background-color: rgba($white, 1)
+		position: relative
+		z-index: 1
+
+		&:before
+			content: ''
+			display: block
+			height: 100%
+			width: 150px
+			position: absolute
+			top: 0
+			left: 100%
+			background: linear-gradient(269.75deg, rgba(255, 255, 255, 0) 0.11% ,#FFFFFF 99.68%)
+			z-index: -1
+	.quality__minusi
+		.quality__items
+			justify-content: flex-end
+			flex-wrap: wrap
+			.quality__item
+				background-color: $pink
+	&__item
+		max-width: 350px
+		width: 100%
+		padding: 10px 20px
+		font-weight: bold
+		margin-left: 30px
+		margin-bottom: 30px
 
 
 
