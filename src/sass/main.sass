@@ -348,8 +348,8 @@
 		&--form
 			width: 42%
 			@extend .gradient-2
-			padding: 40px 60px 0
-			+media-breakpoint-down(lg)
+			padding: 40px 60px
+			@media (max-width: 1600px)
 				padding: 30px 20px
 			+media-breakpoint-down(md)
 				max-width: 600px
@@ -380,6 +380,53 @@
 				.row
 					align-items: flex-end
 
+// TEAM
+.team
+	h2
+		margin-bottom: 15px
+	&__block
+		max-width: 1400px
+		width: 100%
+	&__user
+		width: 25%
+		text-align: center
+		border: 1px solid $red
+		&--foto
+			width: 200px
+			height: 200px
+			overflow: hidden
+			margin: 0 auto 20px
+			border-radius: 0 0 50% 50%
+			position: relative
+			z-index: 1
+			&.lazyparent
+				box-shadow: none
+				&:before
+					opacity: 0
+				img
+					max-width: 100px
+					width: 100%
+					position: absolute
+					left: 50%
+					top: 50%
+					transform: translate(-50%, -50%)
+			&:before
+				content: ''
+				display: block
+				box-shadow: 0px 10px 35px rgba(0, 130, 255, 0.5)
+				width: 175px
+				height: 175px
+				@extend .gradient-2
+				position: absolute
+				bottom: 0
+				left: 50%
+				transform: translateX(-50%)
+				border-radius: 50%
+				z-index: -1
+				transition: all .25s
+			img
+				margin: 0 auto
+				max-width: 165px
 
 // CALLBACK
 .callback
