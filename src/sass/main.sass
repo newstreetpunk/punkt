@@ -388,17 +388,29 @@
 		max-width: 1400px
 		width: 100%
 		flex-wrap: wrap
+		justify-content: center
 	&__user
 		width: 25%
 		text-align: center
 		margin-bottom: 30px
+		+media-breakpoint-down(md)
+			width: 33%
+		+media-breakpoint-down(sm)
+			width: 50%
+		+media-breakpoint-down(xs)
+			margin-bottom: 10px
 		h5
 			font-weight: 900
 			font-size: em(20)
 			text-transform: none
+			+media-breakpoint-down(xs)
+				font-size: em(14)
+				margin-bottom: 3px
 		p
 			font-weight: normal
 			line-height: 1.4
+			+media-breakpoint-down(xs)
+				font-size: em(14)
 		&--foto
 			width: 100%
 			height: 100%
@@ -412,6 +424,10 @@
 				border-radius: 50%
 				margin: 0 auto 20px
 				position: relative
+				+media-breakpoint-down(xs)
+					width: 80px
+					height: 80px
+					margin-bottom: 10px
 				&:after
 					content: ''
 					display: block
@@ -424,6 +440,9 @@
 					border-radius: 50%
 					box-shadow: 0px 10px 35px rgba(0, 130, 255, 0.5)
 					z-index: -1
+					+media-breakpoint-down(xs)
+						width: 60px
+						height: 60px
 			&.lazyparent
 				box-shadow: none
 				&:before
@@ -435,6 +454,8 @@
 					left: 50%
 					top: 50%
 					transform: translate(-50%, -50%)
+					+media-breakpoint-down(xs)
+						max-width: 100%
 			&:before
 				content: ''
 				display: block
@@ -448,10 +469,70 @@
 				border-radius: 50%
 				z-index: -1
 				transition: all .25s
+				+media-breakpoint-down(xs)
+					width: 70px
+					height: 70px
 			img
 				margin: 0 auto
 				max-width: 180px
 				min-height: 200px
+				+media-breakpoint-down(xs)
+					max-width: 100%
+					min-height: 0
+.video__block
+	padding: 50px 0
+	text-align: center
+	+media-breakpoint-down(xs)
+		padding: 30px 0
+	.video-link
+		display: block
+		background-color: $tr-blue
+		max-width: 560px
+		width: 100%
+		height: 300px
+		background-size: cover
+		background-position: center
+		margin: 0 auto
+		position: relative
+		z-index: 1
+		+media-breakpoint-down(xs)
+			height: 200px
+		&:before
+			content: ''
+			display: block
+			width: 100%
+			height: 100%
+			position: absolute
+			left: 0
+			top: 0
+			background-color: rgba($text, .4)
+			z-index: -1
+		&:hover
+			img
+				transform: translate(-50%, -50%) scale(1.1)
+				opacity: 1
+			span
+				color: $text
+		img
+			position: absolute
+			left: 50%
+			top: 50%
+			transform: translate(-50%, -50%) scale(1)
+			transition: all .3s ease-in-out
+			opacity: .8
+			+media-breakpoint-down(xs)
+				max-width: 80px
+		span
+			position: absolute
+			left: 0
+			top: 102%
+			width: 100%
+			color: $text
+			font-weight: normal
+			text-align: center
+			display: block
+
+
 
 // CALLBACK
 .callback
