@@ -688,6 +688,9 @@
 
 // PRICE
 .price
+	.container
+		+media-breakpoint-down(md)
+			max-width: 95%
 	&-dop
 		margin-bottom: 20px
 		li
@@ -706,14 +709,43 @@
 			text-align: center
 			white-space: normal
 	&__block
-		margin: 140px 0
+		margin: 140px 0 200px
+		@media (max-width: 1600px)
+			margin: 120px 0
+		+media-breakpoint-down(sm)
+			flex-direction: column
+			align-items: center
+			margin: 0
 	&__item
-		width: 29%
+		width: 28%
 		box-shadow: 0px 10px 35px rgba($dark-blue, 0.5)
 		border-radius: 0 0 10px 10px
 		overflow: hidden
+		height: 100%
+		+media-breakpoint-down(md)
+			width: 30%
+		+media-breakpoint-down(sm)
+			max-width: 600px
+			width: 100%
+			margin-bottom: 50px
+			li
+				display: inline
+				margin-right: 10px
+				padding-left: 15px !important
+				&:before
+					top: -2px !important
 		&.center
-			transform: scale(1.1)
+			transform: scale(1.25)
+			margin-top: 70px
+			height: 100% !important
+			@media (max-width: 1600px)
+				transform: scale(1.2)
+				margin-top: 40px
+			+media-breakpoint-down(lg)
+				margin-top: 50px
+			+media-breakpoint-down(sm)
+				margin-top: 0
+				transform: scale(1.05)
 		h3
 			padding: 12px 10px
 			@extend .gradient-2
@@ -722,20 +754,33 @@
 			text-align: center
 		&--info
 			padding: 40px 30px
+			+media-breakpoint-down(lg)
+				padding: 30px 20px
+			+media-breakpoint-down(sm)
+				padding-top: 15px
 		&-money
 			text-align: center
 			text-transform: uppercase
 			line-height: 1
 			margin-bottom: 15px
+			white-space: nowrap
+			+media-breakpoint-down(sm)
+				margin-bottom: 10px
 			strong
 				font-size: em(35)
+				+media-breakpoint-down(lg)
+					font-size: em(25)
 			&.total
 				font-size: em(25)
+				+media-breakpoint-down(lg)
+					font-size: em(20)
 				strong
 					font-size: em(55)
+					+media-breakpoint-down(lg)
+						font-size: em(40)
 		.btn-wrap
 			text-align: center
-			margin: 50px 0 20px
+			margin: 50px 0 0
 			.btn
 				font-size: em(14)
 				padding: 15px 70px
@@ -750,10 +795,15 @@
 			font-weight: 900
 			display: block
 			margin-bottom: 15px
+			+media-breakpoint-down(md)
+				margin-bottom: 5px
 		li
 			position: relative
 			padding-left: 20px
 			margin-bottom: 10px
+			font-size: em(14)
+			+media-breakpoint-down(md)
+				margin-bottom: 5px
 			&:before
 				content: '●'
 				display: block

@@ -100,6 +100,24 @@ jQuery(function($) {
 		});
 	}
 
+	function myHeight() {
+		let elem = $('.price__item');
+		let tallest = 0;
+
+		elem.each(function(i){
+			let h = $(this).height();
+
+			if (i != 1) {
+				if (h > tallest) {
+					tallest = h;
+				}
+				$(this).height(tallest);	
+			}	
+
+		});
+	}
+	//myHeight();
+
 	function customResize(){
 		winWidth    = $(window).width();
 		container   = $('.callback .container').width();
