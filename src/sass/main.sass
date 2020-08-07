@@ -538,18 +538,18 @@
 
 // quality
 .quality
-	padding: 0
+	padding: 0		
 	.sect-bg
 		background-size: 50%
 		background-position: right top
 		background-repeat: no-repeat
 	&__block
-		width: 50%
+		max-width: 730px
+		width: 100%
 		padding: 80px 0
 		background-color: rgba($white, 1)
 		position: relative
 		z-index: 1
-
 		&:before
 			content: ''
 			display: block
@@ -557,22 +557,40 @@
 			width: 150px
 			position: absolute
 			top: 0
-			left: 100%
-			background: linear-gradient(269.75deg, rgba(255, 255, 255, 0) 0.11% ,#FFFFFF 99.68%)
+			left: 104%
+			background: linear-gradient(269.75deg, rgba(255, 255, 255, 0) 0.11%, #FFFFFF 99.89%)
 			z-index: -1
 	.quality__minusi
+		position: relative
+		&:after
+			content: ''
+			display: block
+			height: 100%
+			width: 50%
+			position: absolute
+			left: 0
+			top: 0
+			background-color: $white
 		.quality__items
 			justify-content: flex-end
 			flex-wrap: wrap
 			.quality__item
 				background-color: $pink
 	&__item
-		max-width: 350px
-		width: 100%
+		width: 48%
+		min-height: 180px
 		padding: 10px 20px
 		font-weight: bold
-		margin-left: 30px
-		margin-bottom: 30px
+		margin: 1%
+		position: relative
+		&--icon
+			position: absolute
+			max-width: 80px
+			right: 10px
+			bottom: 10px
+			img
+				width: 100%
+
 
 
 
