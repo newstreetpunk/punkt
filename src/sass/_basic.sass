@@ -104,6 +104,16 @@ h1, h2, h3, h4, h5, h6
 		background-color: darken($yellow, 3%)
 		color: $text
 		box-shadow: none
+
+.bg-btn
+	padding-left: 50px
+	background-image: url(../img/phone.svg)
+	background-repeat: no-repeat
+	background-position: left 15px center
+	background-size: 25px
+	+media-breakpoint-down(lg)
+		padding: 15px 15px 15px 50px
+		font-size: em(16)
 		
 
 // КНОПКА МЕНЮ
@@ -154,7 +164,7 @@ h1, h2, h3, h4, h5, h6
 section
 	padding: 70px 0
 	+media-breakpoint-down(xs)
-		padding: 50px 0
+		padding: 40px 0
 	h2
 		font-size: em(40)
 		text-transform: uppercase
@@ -178,6 +188,10 @@ section
 			margin-bottom: 30px
 	+media-breakpoint-down(xs)
 		margin-bottom: 20px
+
+.blue-color
+	color: $blue
+	margin: 0
 
 .sect-bg
 	background-size: cover
@@ -389,6 +403,8 @@ input[type="checkbox"]
 	@extend .gradient-2
 	color: $white
 	font-weight: bold
+	+media-breakpoint-down(md)
+		top: 5%
 	h3
 		font-size: em(26)
 		font-weight: bold
