@@ -121,7 +121,8 @@ jQuery(function($) {
 	function clickTitle(){
 		$('.price__item h3').click(function(){
 			if ($(window).width() < 768) {
-				$(this).next().slideToggle();
+				$(this).next().slideToggle(100);
+				$(this).closest('.price__item').toggleClass('active');
 			}
 		});
 	}

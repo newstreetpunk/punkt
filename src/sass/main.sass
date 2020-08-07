@@ -19,8 +19,12 @@
 		padding: 20px 0
 	+media-breakpoint-down(sm)
 		background-color: $white
+	+media-breakpoint-down(xs)
+		padding: 10px 0 !important
 	.container
-			max-width: 95%
+		max-width: 95%
+		+media-breakpoint-down(xs)
+			max-width: 100%
 	&__wrap
 		+media-breakpoint-down(sm)
 			flex-direction: column
@@ -28,10 +32,14 @@
 		max-width: 170px
 		width: 100%
 		display: block
+		@media (max-width: 1600px)
+			margin-right: 50px
 		+media-breakpoint-down(md)
 			max-width: 150px
 		+media-breakpoint-down(sm)
 			margin-bottom: 20px
+		+media-breakpoint-down(xs)
+			margin-right: auto
 		img
 			width: 100%
 			height: auto
@@ -100,7 +108,13 @@
 						text-decoration: underline
 	&__right
 		+media-breakpoint-down(xs)
-			flex-direction: column
+			justify-content: space-between
+			width: 100%
+			.btn
+				background-image: none
+				padding: 13px 12px
+				font-size: em(12)
+				margin-top: -6px
 	&__phone
 		text-align: center
 		margin-right: 30px
@@ -110,7 +124,7 @@
 			color: $text
 		+media-breakpoint-down(xs)
 			margin-right: 0
-			margin-bottom: 20px
+			text-align: left
 		a
 			display: block
 			color: $white
@@ -120,6 +134,8 @@
 			transition: all .2s
 			+media-breakpoint-down(md)
 				font-size: em(20)
+			+media-breakpoint-down(xs)
+				font-size: em(16)
 			&:hover
 				text-decoration: underline
 			+media-breakpoint-down(lg)
@@ -130,6 +146,8 @@
 			text-transform: uppercase
 			+media-breakpoint-down(md)
 				font-size: em(14)
+			+media-breakpoint-down(xs)
+				font-size: em(12)
 
 //BANNER
 .rodion-portret
@@ -691,6 +709,8 @@
 	.container
 		+media-breakpoint-down(md)
 			max-width: 94%
+		+media-breakpoint-down(sm)
+			max-width: 100%
 	&-dop
 		margin-bottom: 20px
 		li
@@ -736,12 +756,19 @@
 			&.active
 				.price__item--info
 					display: block
+				h3
+					&:after
+						transform: rotate(45deg)
+					&:before
+						transform: rotate(-45deg)
 			li
 				display: inline
 				margin-right: 10px
 				padding-left: 15px !important
 				&:before
 					top: -2px !important
+		+media-breakpoint-down(xs)
+			margin-bottom: 20px
 		&.center
 			transform: scale(1.25)
 			margin-top: 70px
@@ -761,6 +788,21 @@
 			font-size: em(20)
 			text-align: center
 			margin-bottom: 0
+			+media-breakpoint-down(sm)
+				position: relative
+				&:before, &:after
+					content: ''
+					display: block
+					width: 15px
+					height: 1px
+					background-color: $white
+					position: absolute
+					right: 10px
+					top: 50%
+					transform: rotate(0)
+					transition: all .1s ease-in-out
+				&:after
+					transform: rotate(90deg)
 		&--info
 			padding: 40px 30px
 			+media-breakpoint-down(lg)
