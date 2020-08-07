@@ -118,6 +118,16 @@ jQuery(function($) {
 	}
 	//myHeight();
 
+	function clickTitle(){
+		$('.price__item h3').click(function(){
+			if ($(window).width() < 768) {
+				$(this).next().slideToggle();
+			}
+		});
+	}
+
+	clickTitle();
+
 	function customResize(){
 		winWidth    = $(window).width();
 		container   = $('.callback .container').width();
@@ -126,16 +136,11 @@ jQuery(function($) {
 
 		contactElem.css('padding-left', result);
 
-		if (winWidth < 768) {
-			$('.price__item h3').click(function(){
-				$(this).next().slideToggle();
-			});
-		}
-
 	}customResize();
 
 	$(window).resize(function(){
 		customResize();
+		// clickTitle();
 	});
 
 	$('.lazyload').lazyload();

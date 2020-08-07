@@ -690,7 +690,7 @@
 .price
 	.container
 		+media-breakpoint-down(md)
-			max-width: 95%
+			max-width: 94%
 	&-dop
 		margin-bottom: 20px
 		li
@@ -702,13 +702,15 @@
 		max-width: 1000px
 		width: 100%
 		margin: 60px auto 0
+		+media-breakpoint-down(md)
+			margin-top: 40px
 		.paral
 			display: block
 			margin: 40px 0
 			width: 100%
 			text-align: center
 			white-space: normal
-			+media-breakpoint-down(sm)
+			+media-breakpoint-down(md)
 				margin: 20px 0
 	&__block
 		margin: 140px 0 200px
@@ -766,6 +768,8 @@
 			+media-breakpoint-down(sm)
 				padding-top: 15px
 				display: none
+			+media-breakpoint-up(md)
+				display: block !important
 		&-money
 			text-align: center
 			text-transform: uppercase
@@ -789,9 +793,13 @@
 		.btn-wrap
 			text-align: center
 			margin: 50px 0 0
+			+media-breakpoint-down(md)
+				margin-top: 30px
 			.btn
 				font-size: em(14)
 				padding: 15px 70px
+				+media-breakpoint-down(md)
+					padding: 12px 30px
 	ul
 		padding: 0
 		list-style-type: none
@@ -805,6 +813,7 @@
 			margin-bottom: 15px
 			+media-breakpoint-down(md)
 				margin-bottom: 5px
+				font-size: em(14)
 		li
 			position: relative
 			padding-left: 20px
