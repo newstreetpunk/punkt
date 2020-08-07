@@ -125,6 +125,13 @@ jQuery(function($) {
 		contactElem = $('.contacts__info');
 
 		contactElem.css('padding-left', result);
+
+		if (winWidth < 768) {
+			$('.price__item h3').click(function(){
+				$(this).next().slideToggle();
+			});
+		}
+
 	}customResize();
 
 	$(window).resize(function(){
