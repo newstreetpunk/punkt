@@ -878,33 +878,56 @@
 .skidka
 	position: relative
 	padding-bottom: 130px
-	img
-		position: absolute
-		right: 0
-		top: -70px
-		max-width: 50%
-		z-index: 1
+	+media-breakpoint-down(sm)
+		padding-top: 0
+		padding-bottom: 50px
 	&__text
 		height: 400px
 		width: 100%
-		background-image: url(../img/skidka_bg.jpg)
+		background-color: $yellow
 		background-size: cover
 		background-position: left center
 		overflow: hidden
 		display: flex
 		flex-direction: column
 		justify-content: center
-		padding-left: 10%	
+		padding-left: 18%	
 		font-size: em(40)
 		text-transform: uppercase
 		font-weight: bold
 		line-height: 1.2
 		font-style: italic
+		+media-breakpoint-down(lg)
+			height: 300px
+		+media-breakpoint-down(md)
+			padding-left: 15%
+		+media-breakpoint-down(sm)
+			padding: 0
+			align-items: center
+		+media-breakpoint-down(xs)
+			font-size: em(30)
+			background-position: 15% center
 		b
 			font-size: em(48)
 			font-weight: bold
 			margin: 0
 			line-height: 1
+	img
+		position: absolute
+		right: 0
+		top: -70px
+		max-width: 50%
+		z-index: 1
+		@media (max-width: 1600px)
+			top: 20px
+		+media-breakpoint-down(lg)
+			max-width: 45%
+		+media-breakpoint-down(md)
+			max-width: 40%
+			top: 50%
+			transform: translateY(-50%)
+		+media-breakpoint-down(sm)
+			display: none
 
 
 // CALLBACK
