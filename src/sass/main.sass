@@ -307,6 +307,7 @@
 				width: 115px
 				height: 200px
 				font-size: em(200)
+				font-family: $roboto-font
 				color: $tr-blue
 				line-height: 1
 				display: block
@@ -1059,10 +1060,54 @@
 		padding: 0
 		height: 37.5vw
 		+media-breakpoint-down(xs)
-			height: 50vw
+			height: 50
 		.video-link
 			max-width: 100%
 			height: 100%
+
+// cases
+.cases
+	background-size: 60%
+	background-position: right top
+	&:after
+		content: ''
+		display: block
+		width: 45%
+		height: 100%
+		position: absolute
+		left: 0
+		top: 0
+		@extend .gradient-2
+		z-index: -1
+	h2
+		text-align: left
+		margin-bottom: 80px
+	.worksteps
+		width: 45%
+	&__block
+		width: 55%
+		padding-left: 65px
+
+.worksteps
+	color: $white
+	display: flex
+	flex-direction: column
+	align-items: center
+	&__item
+		width: 100%
+		margin-bottom: 5vmax
+		.number
+			font-size: em(200)
+			color: $tr-blue
+			line-height: .75
+			height: auto
+			font-family: $roboto-font
+			margin-right: 3.38vw
+		p
+			margin: 0
+			text-transform: uppercase
+			font-weight: normal
+
 
 // CALLBACK
 .callback

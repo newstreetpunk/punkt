@@ -133,6 +133,8 @@ jQuery(function($) {
 		contactElem = $('.contacts__info');
 
 		contactElem.css('padding-left', result);
+		$('.worksteps').css('padding-left', result);
+		$('.cases__block').css('padding-right', result);
 
 	}customResize();
 
