@@ -212,6 +212,7 @@ section
 		z-index: -1
 
 .gradient-2
+	background: $blue
 	background: linear-gradient(71.7deg, $blue 21.74%, $light-blue 96.81%)
 
 form
@@ -323,13 +324,16 @@ input[type="checkbox"]
 		transition: all .25s ease
 	&.paral-blue
 		color: $white
+		z-index: 3
 		&:before
-			background: $blue2
+			@extend .gradient-2
 	&.paral-yellow
 		color: $text
 		&:before
 			background: $yellow
 	&.paral-double
+		position: relative
+		z-index: 1
 		&:after
 			content: ''
 			transform: skew(-20deg)
@@ -339,13 +343,14 @@ input[type="checkbox"]
 			width: 100%
 			height: 100%
 			transition: all .25s ease
-			z-index: -1
+			z-index: -3
 		&.paral-yellow
 			&:after
 				border: 1px solid $yellow
 		&.paral-blue
 			&:after
 				border: 1px solid $blue2
+				z-index: -3
 		&:hover
 			&:after
 				left: 8px
