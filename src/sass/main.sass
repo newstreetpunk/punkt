@@ -994,17 +994,25 @@
 		right: -50%
 		transform: skew(-20deg)
 		background: $blue
-		background: linear-gradient(71.7deg, $blue 11.74%, $light-blue 96.81%)
+		background: linear-gradient(71.7deg, $blue 5%, $light-blue 96.81%)
 		z-index: 0
+		+media-breakpoint-down(sm)
+			right: -47%
+		+media-breakpoint-down(xs)
+			right: -80%
 	h2
 		line-height: 1.2
-		text-align: left
+		+media-breakpoint-down(xs)
+			font-size: em(28)
+			line-height: 1.4
 	&__item
 		display: flex
 		flex-direction: column
 		justify-content: space-between
 		align-items: center
 		&:last-child()
+			+media-breakpoint-down(sm)
+				margin-top: 50px
 			h2
 				color: $white
 			.paral-blue
@@ -1015,18 +1023,28 @@
 			font-weight: normal
 			font-size: em(20)
 			margin: 30px 0
+			+media-breakpoint-down(xs)
+				margin: 15px 0
 			strong
 				display: block
 				color: $yellow
 				font-size: em(24)
+			&.paral-double
+				&:after
+					+media-breakpoint-down(sm)
+						display: none
 		.btn
 			margin-top: 50px
 			font-size: em(14)
 			padding-left: 40px
 			padding-right: 40px
+			+media-breakpoint-down(xs)
+				margin-top: 25px
 		img
 			max-width: 200px
 			width: 100%
+			+media-breakpoint-down(xs)
+				max-width: 45%
 
 // CALLBACK
 .callback
