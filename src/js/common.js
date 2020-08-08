@@ -100,23 +100,20 @@ jQuery(function($) {
 		});
 	}
 
-	function myHeight() {
-		let elem = $('.price__item');
+	function eqHeight(elem) {
 		let tallest = 0;
 
-		elem.each(function(i){
+		$(elem).each(function(){
 			let h = $(this).height();
 
-			if (i != 1) {
-				if (h > tallest) {
-					tallest = h;
-				}
-				$(this).height(tallest);	
-			}	
+			if (h > tallest) {
+				tallest = h;
+			}
+			$(elem).height(tallest);	
 
 		});
 	}
-	//myHeight();
+	
 
 	function clickTitle(){
 		$('.price__item h3').click(function(){
@@ -197,6 +194,6 @@ jQuery(function($) {
 			$('html').removeAttr('style');
 		}
 		
-	});
+	});		
 
 });

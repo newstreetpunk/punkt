@@ -878,10 +878,11 @@
 // SKIDKA
 .skidka
 	position: relative
-	padding-bottom: 130px
+	padding-bottom: 0
+	+media-breakpoint-down(md)
+		padding-top: 0
 	+media-breakpoint-down(sm)
 		padding-top: 0
-		padding-bottom: 50px
 	&__text
 		height: 400px
 		width: 100%
@@ -930,6 +931,36 @@
 		+media-breakpoint-down(sm)
 			display: none
 
+// advantages
+.advantages
+	&__item
+		text-align: center
+		margin: 10px 0			
+		&--icon
+			margin-bottom: 10px
+			display: flex
+			justify-content: center
+			align-items: center
+			min-height: 150px
+			@media (max-width: 1600px)
+				min-height: 120px
+			+media-breakpoint-down(lg)
+				min-height: 100px
+			+media-breakpoint-down(sm)
+				min-height: 70px
+			+media-breakpoint-down(xs)
+				
+			img
+				max-width: 110px
+				width: 35%
+				+media-breakpoint-down(sm)
+					max-width: 55px
+					width: 100%
+		p
+			+media-breakpoint-down(sm)
+				font-weight: bold
+			+media-breakpoint-down(xs)
+				font-size: em(16)
 
 // CALLBACK
 .callback
