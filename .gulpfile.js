@@ -1,4 +1,4 @@
-punkt: {
+	punkt: {
 		port: ++port,
 
 		base: base.punkt,
@@ -43,7 +43,8 @@ punkt: {
 			''].join('\n'),
 	},
 
-// Punkt BEGIN
+/* punkt BEGIN */
+
 // Local Server
 function punkt_browsersync() {
 	connect.server({
