@@ -18,7 +18,7 @@ jQuery(function($) {
 		}
 
 		var th = $(this);
-		var date = th.find('#date');
+		var date = th.find('.date');
 		date.val(Day +'.'+ Month +'.'+ Year +' '+ Hour +':'+ Min +':'+ Sec);
 		var btnSubmit = th.find('button[type="submit"]');
 		btnSubmit.attr("disabled", true);
