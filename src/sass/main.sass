@@ -1099,6 +1099,42 @@
 			font-weight: normal
 		strong
 			font-size: em(22)
+	&__preview
+		position: relative
+		width: 190px
+		&--item
+			margin-bottom: 20px
+			cursor: pointer
+			height: 270px !important
+			background-size: cover
+			background-position: center
+			font-size: em(12)
+			color: $white
+			position: relative
+			z-index: 1
+			padding: 15px
+			&:before
+				content: ''
+				display: block
+				width: 100%
+				height: 100%
+				position: absolute
+				top: 0
+				left: 0
+				background-color: rgba($blue2, .85)
+				z-index: -1
+		&--info
+			height: 100%
+			display: flex
+			flex-direction: column
+			justify-content: flex-end
+			.cases__info
+				margin-top: 10px
+				strong
+					font-size: em(16)
+					font-weight: bold
+				&:first-child()
+					margin-top: 0
 
 .worksteps
 	color: $white
