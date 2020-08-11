@@ -206,6 +206,7 @@ jQuery(function($) {
 		arrows: true,
 		vertical: true,
 		verticalSwiping: true,
+		// centerMode: true,
 		prevArrow: '<button class="slick-prev"><img src="img/arrow-top.svg"></button>',
         nextArrow: '<button class="slick-next"><img src="img/arrow-down.svg"></button>'
 	});
