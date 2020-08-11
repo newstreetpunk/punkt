@@ -1081,12 +1081,24 @@
 		z-index: -1
 	h2
 		text-align: left
-		margin-bottom: 80px
+		margin-bottom: 4.17vmax
 	.worksteps
 		width: 45%
 	&__block
 		width: 55%
 		padding-left: 65px
+	&__viewing
+		&--img
+			max-width: 505px
+			min-height: 715px
+			margin-bottom: 40px
+	&__info
+		margin-top: 20px
+		span
+			display: block
+			font-weight: normal
+		strong
+			font-size: em(22)
 
 .worksteps
 	color: $white
@@ -1106,7 +1118,7 @@
 		p
 			margin: 0
 			text-transform: uppercase
-			font-weight: normal
+			font-weight: bold
 
 
 // CALLBACK

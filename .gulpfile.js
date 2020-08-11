@@ -17,6 +17,7 @@
 				base.punkt + '/src/libs/jquery/jquery-2.2.4.min.js',
 				base.punkt + '/src/libs/lazyload/lazyload.js',
 				base.punkt + '/src/libs/Magnific-Popup-master/jquery.magnific-popup.js',
+				'node_modules/slick-1.8.1/slick/slick.min.js',
 				base.punkt + '/src/libs/sweetalert.min.js',
 				base.punkt + '/src/js/map.js',
 				base.punkt + '/src/js/common.js',
