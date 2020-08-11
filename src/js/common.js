@@ -136,7 +136,9 @@ jQuery(function($) {
 		$('.worksteps').css('padding-left', result);
 		$('.cases__block').css('padding-right', result);
 
-	}customResize();
+	}
+
+	customResize();
 
 	$(window).resize(function(){
 		customResize();
@@ -244,7 +246,10 @@ jQuery(function($) {
 	});
 
 	$('a.scroll').bind("click", function(e){
+		$('.mobile-btn').click();
+		$('.header__menu li.active').toggleClass('active');
 		var anchor = $(this);
+		anchor.parent().toggleClass('active');
 		$('html, body').stop().animate({
 			scrollTop: $(anchor.attr('href')).offset().top}, 1000);
 		e.preventDefault();
