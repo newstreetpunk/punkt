@@ -205,7 +205,24 @@ jQuery(function($) {
 		dots: false,
 		arrows: true,
 		vertical: true,
-		verticalSwiping: true
+		verticalSwiping: true,
+		prevArrow: '<button class="slick-prev"><img src="img/arrow-top.svg"></button>',
+        nextArrow: '<button class="slick-next"><img src="img/arrow-down.svg"></button>'
+	});
+
+	$('.cases__preview--item').click(function(){
+
+		let th         = $(this),
+			img        = th.css('background-image').split(/\//).slice(-2).join("/").slice(0, -2),
+			writingoff = th.find('.writingoff strong').text(),
+			debt       = th.find('.debt strong').text(),
+			casenumber = th.find('.casenumber strong').text();
+		
+		$('.cases__viewing img').attr('src', img);
+		$('.cases__viewing .writingoff strong').text(writingoff);
+		$('.cases__viewing .debt strong').text(debt);
+		$('.cases__viewing .casenumber strong').text(casenumber);
+
 	});
 
 });

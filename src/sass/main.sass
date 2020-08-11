@@ -1102,8 +1102,9 @@
 	&__preview
 		position: relative
 		width: 190px
+		margin-top: -25px
 		&--item
-			margin-bottom: 50px
+			margin: 25px 0
 			cursor: pointer
 			height: 270px !important
 			background-size: cover
@@ -1113,6 +1114,7 @@
 			position: relative
 			z-index: 1
 			padding: 15px
+			border-radius: 0 !important
 			&:before
 				content: ''
 				display: block
@@ -1135,6 +1137,26 @@
 					font-weight: bold
 				&:first-child()
 					margin-top: 0
+
+.slick-prev, 
+.slick-next
+	position: absolute
+	left: 50%
+	transform: translateX(-50%)
+	top: -40px
+	width: 50px
+	opacity: 1
+	transition: all .25s ease
+	&:hover
+		opacity: .8
+	img
+		width: 30px
+		margin: 0 auto
+	&:before
+		display: none
+.slick-next
+	top: auto
+	bottom: 50px
 
 .worksteps
 	color: $white
