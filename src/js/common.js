@@ -208,7 +208,24 @@ jQuery(function($) {
 		verticalSwiping: true,
 		// centerMode: true,
 		prevArrow: '<button class="slick-prev"><img src="img/arrow-top.svg"></button>',
-        nextArrow: '<button class="slick-next"><img src="img/arrow-down.svg"></button>'
+		nextArrow: '<button class="slick-next"><img src="img/arrow-down.svg"></button>',
+		responsive: [
+		{
+			breakpoint: 1200,
+			settings: {
+				vertical: false,
+				verticalSwiping: false,
+			}
+		},
+		{
+			breakpoint: 992,
+			settings: {
+				slidesToShow: 2,
+				vertical: false,
+				verticalSwiping: false,
+			}
+		}
+		]
 	});
 
 	$('.cases__preview--item').click(function(){
