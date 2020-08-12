@@ -257,39 +257,24 @@ jQuery(function($) {
 		// centerMode: true,
 		prevArrow: location.host == "xn----8sbah1brndjri.xn--p1ai" ? '<button class="slick-prev"><img src="/assets/templates/lp/img/arrow-top.svg"></button>' : '<button class="slick-prev"><img src="img/arrow-top.svg"></button>',
 		nextArrow: location.host == "xn----8sbah1brndjri.xn--p1ai" ? '<button class="slick-next"><img src="/assets/templates/lp/img/arrow-down.svg"></button>' : '<button class="slick-next"><img src="img/arrow-down.svg"></button>',
-		// responsive: [
-		// {
-		// 	breakpoint: 1200,
-		// 	settings: {
-		// 		vertical: false,
-		// 		verticalSwiping: false,
-		// 	}
-		// },
-		// {
-		// 	breakpoint: 992,
-		// 	settings: {
-		// 		slidesToShow: 2,
-		// 		vertical: false,
-		// 		verticalSwiping: false,
-		// 	}
-		// },
-		// {
-		// 	breakpoint: 768,
-		// 	settings: {
-		// 		slidesToShow: 3,
-		// 		vertical: false,
-		// 		verticalSwiping: false,
-		// 	}
-		// },
-		// {
-		// 	breakpoint: 576,
-		// 	settings: {
-		// 		slidesToShow: 1,
-		// 		vertical: false,
-		// 		verticalSwiping: false,
-		// 	}
-		// }
-		// ]
+		responsive: [
+		{
+			breakpoint: 992,
+			settings: {
+				slidesToShow: 2,
+				vertical: false,
+				verticalSwiping: false,
+			}
+		},
+		{
+			breakpoint: 576,
+			settings: {
+				slidesToShow: 1,
+				vertical: false,
+				verticalSwiping: false,
+			}
+		}
+		]
 	});
 
 	$('.cases__preview--item').click(function(){
