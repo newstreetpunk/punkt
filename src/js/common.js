@@ -226,6 +226,22 @@ jQuery(function($) {
 				vertical: false,
 				verticalSwiping: false,
 			}
+		},
+		{
+			breakpoint: 768,
+			settings: {
+				slidesToShow: 3,
+				vertical: false,
+				verticalSwiping: false,
+			}
+		},
+		{
+			breakpoint: 576,
+			settings: {
+				slidesToShow: 1,
+				vertical: false,
+				verticalSwiping: false,
+			}
 		}
 		]
 	});
