@@ -399,7 +399,6 @@
 
 // TEAM
 .team
-	// box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
 	position: relative
 	z-index: 3
 	h2
@@ -510,24 +509,13 @@
 	background-color: $tr-blue
 	max-width: 560px
 	width: 100%
-	height: 300px
 	background-size: cover
 	background-position: center
 	margin: 0 auto
 	position: relative
 	z-index: 1
-	+media-breakpoint-down(xs)
-		height: 200px
 	&:before
-		content: ''
-		display: block
-		width: 100%
-		height: 100%
-		position: absolute
-		left: 0
-		top: 0
 		background-color: rgba($text, .4)
-		z-index: -1
 	&:hover
 		img
 			transform: translate(-50%, -50%) scale(1.1)
@@ -583,7 +571,6 @@
 		max-width: 730px
 		width: 100%
 		padding: 80px 0 50px
-		// background-color: rgba($white, 1)
 		position: relative
 		z-index: 1
 		+media-breakpoint-down(lg)
@@ -602,7 +589,6 @@
 			position: absolute
 			top: 0
 			left: 104%
-			// background: linear-gradient(269.75deg, rgba(255, 255, 255, 0) 0.11%, #FFFFFF 99.89%)
 			z-index: -1
 			@media (max-width: 1600px)
 				left: 100%
@@ -629,7 +615,6 @@
 			position: absolute
 			left: 0
 			top: 0
-			// background-color: $white
 			+media-breakpoint-down(md)
 				display: none
 		.quality__items
@@ -657,7 +642,6 @@
 				top: 0
 				left: auto
 				right: 104%
-				// background: linear-gradient(-269.75deg, rgba(255, 255, 255, 0) 0.11%, #FFFFFF 99.89%)
 				z-index: -1
 				@media (max-width: 1600px)
 					left: auto
@@ -672,7 +656,6 @@
 			position: absolute
 			right: 0
 			top: 0
-			// background-color: $white
 			+media-breakpoint-down(md)
 				display: none
 		.quality__items
@@ -1065,12 +1048,8 @@
 		width: 100%
 		margin: 0 auto
 		padding: 0
-		height: 30vw
-		+media-breakpoint-down(xs)
-			height: 50
 		.video-link
 			max-width: 100%
-			height: 100%
 
 // cases
 .cases

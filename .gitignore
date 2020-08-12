@@ -2,3 +2,4 @@
 *.php
 phpmailer
 sftp-config.json
+.htaccess
