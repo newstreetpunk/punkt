@@ -209,8 +209,8 @@ jQuery(function($) {
 		vertical: true,
 		verticalSwiping: true,
 		// centerMode: true,
-		prevArrow: '<button class="slick-prev"><img src="img/arrow-top.svg"></button>',
-		nextArrow: '<button class="slick-next"><img src="img/arrow-down.svg"></button>',
+		prevArrow: location.host == "xn----8sbah1brndjri.xn--p1ai" ? '<button class="slick-prev"><img src="/assets/templates/lp/img/arrow-top.svg"></button>' : '<button class="slick-prev"><img src="img/arrow-top.svg"></button>',
+		nextArrow: location.host == "xn----8sbah1brndjri.xn--p1ai" ? '<button class="slick-next"><img src="/assets/templates/lp/img/arrow-down.svg"></button>' : '<button class="slick-next"><img src="img/arrow-down.svg"></button>',
 		responsive: [
 		{
 			breakpoint: 1200,
