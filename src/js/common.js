@@ -271,4 +271,15 @@ jQuery(function($) {
 		e.preventDefault();
 	});
 
+	$('.faq__question').click(function(){
+		if ($(this).hasClass('active')) {
+			$(this).removeClass('active').next().slideUp();
+		}else{
+			$('.faq__question').removeClass('active');
+			$('.faq__item p').slideUp();
+			$(this).addClass('active').next().slideDown();
+		}
+		
+	});
+
 });

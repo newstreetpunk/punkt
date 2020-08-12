@@ -1288,6 +1288,40 @@
 	background-size: contain
 	background-position: center
 	background-repeat: no-repeat
+	&__text
+		max-width: 550px
+		h3
+			text-transform: none
+			font-size: em(25)
+			font-weight: bold
+			line-height: 1.4
+	&__item
+		font-weight: normal
+		margin-top: 25px
+		p
+			// background-color: $tr-blue
+			// box-shadow: 5px 5px 30px rgba($black, .5)
+			// padding: 5px 10px
+			display: none
+			padding-left: 20px
+	&__question
+		font-size: em(15)
+		font-weight: normal
+		cursor: pointer
+		transition: all .25 ease
+		// margin-bottom: 0
+		padding-left: 20px
+		position: relative
+		&:before
+			content: '●'
+			display: inline-block
+			font-size: 20px
+			color: $light-blue
+			position: absolute
+			left: 0
+			top: -3px
+		&:hover, &.active
+				color: $light-blue
 
 
 // CALLBACK
