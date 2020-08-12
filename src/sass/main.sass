@@ -254,12 +254,19 @@
 			line-height: 1
 	&-video
 		text-decoration: none
-		margin-left: 70px
-		margin-top: -30px
+		margin-left: 70px !important
+		margin-top: -30px !important
+		max-width: none !important
+		width: 250px !important
+		height: 130px !important
+		background-color: transparent !important
+		background-image: none !important
+		&:before
+			display: none !important
 		+media-breakpoint-down(lg)
-			margin-left: 6%
+			margin-left: 6% !important
 		+media-breakpoint-down(xs)
-			margin-top: 10px
+			margin-top: 10px !important
 		&:hover
 			color: $text
 			span
@@ -1333,6 +1340,7 @@
 			position: relative
 			span
 				text-align: left
+				line-height: 1.4
 		.slick-next
 			bottom: -10px
 
