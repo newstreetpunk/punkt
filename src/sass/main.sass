@@ -498,53 +498,53 @@
 	text-align: center
 	+media-breakpoint-down(xs)
 		padding: 30px 0
-	.video-link
+.video-link
+	display: block
+	background-color: $tr-blue
+	max-width: 560px
+	width: 100%
+	height: 300px
+	background-size: cover
+	background-position: center
+	margin: 0 auto
+	position: relative
+	z-index: 1
+	+media-breakpoint-down(xs)
+		height: 200px
+	&:before
+		content: ''
 		display: block
-		background-color: $tr-blue
-		max-width: 560px
 		width: 100%
-		height: 300px
-		background-size: cover
-		background-position: center
-		margin: 0 auto
-		position: relative
-		z-index: 1
-		+media-breakpoint-down(xs)
-			height: 200px
-		&:before
-			content: ''
-			display: block
-			width: 100%
-			height: 100%
-			position: absolute
-			left: 0
-			top: 0
-			background-color: rgba($text, .4)
-			z-index: -1
-		&:hover
-			img
-				transform: translate(-50%, -50%) scale(1.1)
-				opacity: 1
-			span
-				color: $text
+		height: 100%
+		position: absolute
+		left: 0
+		top: 0
+		background-color: rgba($text, .4)
+		z-index: -1
+	&:hover
 		img
-			position: absolute
-			left: 50%
-			top: 50%
-			transform: translate(-50%, -50%) scale(1)
-			transition: all .3s ease-in-out
-			opacity: .8
-			+media-breakpoint-down(xs)
-				max-width: 80px
+			transform: translate(-50%, -50%) scale(1.1)
+			opacity: 1
 		span
-			position: absolute
-			left: 0
-			top: 102%
-			width: 100%
 			color: $text
-			font-weight: normal
-			text-align: center
-			display: block
+	img
+		position: absolute
+		left: 50%
+		top: 50%
+		transform: translate(-50%, -50%) scale(1)
+		transition: all .3s ease-in-out
+		opacity: .8
+		+media-breakpoint-down(xs)
+			max-width: 80px
+	span
+		position: absolute
+		left: 0
+		top: 102%
+		width: 100%
+		color: $text
+		font-weight: normal
+		text-align: center
+		display: block
 
 // quality
 .quality
@@ -1058,7 +1058,7 @@
 		width: 100%
 		margin: 0 auto
 		padding: 0
-		height: 37.5vw
+		height: 30vw
 		+media-breakpoint-down(xs)
 			height: 50
 		.video-link
@@ -1322,6 +1322,21 @@
 			top: -3px
 		&:hover, &.active
 				color: $light-blue
+	&__video
+		max-width: 600px
+		margin-left: auto
+		&--item
+			display: block
+			width: 100%
+			height: 300px !important
+			margin-bottom: 80px
+			position: relative
+			span
+				text-align: left
+		.slick-next
+			bottom: -10px
+
+
 
 
 // CALLBACK
