@@ -257,39 +257,39 @@ jQuery(function($) {
 		// centerMode: true,
 		prevArrow: location.host == "xn----8sbah1brndjri.xn--p1ai" ? '<button class="slick-prev"><img src="/assets/templates/lp/img/arrow-top.svg"></button>' : '<button class="slick-prev"><img src="img/arrow-top.svg"></button>',
 		nextArrow: location.host == "xn----8sbah1brndjri.xn--p1ai" ? '<button class="slick-next"><img src="/assets/templates/lp/img/arrow-down.svg"></button>' : '<button class="slick-next"><img src="img/arrow-down.svg"></button>',
-		responsive: [
-		{
-			breakpoint: 1200,
-			settings: {
-				vertical: false,
-				verticalSwiping: false,
-			}
-		},
-		{
-			breakpoint: 992,
-			settings: {
-				slidesToShow: 2,
-				vertical: false,
-				verticalSwiping: false,
-			}
-		},
-		{
-			breakpoint: 768,
-			settings: {
-				slidesToShow: 3,
-				vertical: false,
-				verticalSwiping: false,
-			}
-		},
-		{
-			breakpoint: 576,
-			settings: {
-				slidesToShow: 1,
-				vertical: false,
-				verticalSwiping: false,
-			}
-		}
-		]
+		// responsive: [
+		// {
+		// 	breakpoint: 1200,
+		// 	settings: {
+		// 		vertical: false,
+		// 		verticalSwiping: false,
+		// 	}
+		// },
+		// {
+		// 	breakpoint: 992,
+		// 	settings: {
+		// 		slidesToShow: 2,
+		// 		vertical: false,
+		// 		verticalSwiping: false,
+		// 	}
+		// },
+		// {
+		// 	breakpoint: 768,
+		// 	settings: {
+		// 		slidesToShow: 3,
+		// 		vertical: false,
+		// 		verticalSwiping: false,
+		// 	}
+		// },
+		// {
+		// 	breakpoint: 576,
+		// 	settings: {
+		// 		slidesToShow: 1,
+		// 		vertical: false,
+		// 		verticalSwiping: false,
+		// 	}
+		// }
+		// ]
 	});
 
 	$('.cases__preview--item').click(function(){
@@ -326,12 +326,24 @@ jQuery(function($) {
 		
 	});
 
-	// $.ajax({
-	// 	url: "https://www.googleapis.com/youtube/v3/videos?id=S1Thhf6U5zE&key=AIzaSyB31S0lxesDwkuSGrAM4E4G2lyPgoNFQJA&fields=items(snippet(title))&part=snippet", 
-	// 	dataType: "jsonp",
-	// 	success: function(data){
-	// 		console.log(data.items[0].snippet.title);           
-	// 	}
-	// });
+	$('.faq__video--item').each(function(){
+		let th  = $(this),
+			vid = th.attr('href').split('='),
+			api = 'AIzaSyB31S0lxesDwkuSGrAM4E4G2lyPgoNFQJA';
+
+		$.ajax({
+			url: "https://www.googleapis.com/youtube/v3/videos?id="+vid+"&key="+api+"&fields=items(snippet(title))&part=snippet", 
+			dataType: "jsonp",
+			success: function(data){
+				let title = data.items[0].snippet.title;
+				if (title) {
+					th.find('span').text(title);
+				}else{
+					th.find('span').text('Видео с YouTube');
+				}
+			}
+		});
+
+	});
 
 });
