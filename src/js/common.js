@@ -165,8 +165,6 @@ jQuery(function($) {
 		// clickTitle();
 	});
 
-	$('.lazyload').lazyload();
-
 	// MODALS
 	$('.modal-link').click(function(){
 		let th    = $(this),
@@ -199,6 +197,9 @@ jQuery(function($) {
 
 		fixedContentPos: true
 	});
+	$('.cases__viewing a').magnificPopup({
+		type: 'image'
+	});
 
 	$('a[href="#privacy-policy"]').on('click', function(){
 
@@ -230,8 +231,10 @@ jQuery(function($) {
 		vertical: true,
 		verticalSwiping: true,
 		// centerMode: true,
-		prevArrow: location.host == "xn----8sbah1brndjri.xn--p1ai" ? '<button class="slick-prev"><img src="/assets/templates/lp/img/arrow-top.svg"></button>' : '<button class="slick-prev"><img src="img/arrow-top.svg"></button>',
-		nextArrow: location.host == "xn----8sbah1brndjri.xn--p1ai" ? '<button class="slick-next"><img src="/assets/templates/lp/img/arrow-down.svg"></button>' : '<button class="slick-next"><img src="img/arrow-down.svg"></button>',
+		prevArrow: location.host == "xn----8sbah1brndjri.xn--p1ai" ? '<button class="slick-prev"><img src="img/arrow-top.svg"></button>' : '<button class="slick-prev"><img src="img/arrow-top.svg"></button>',
+		nextArrow: location.host == "xn----8sbah1brndjri.xn--p1ai" ? '<button class="slick-next"><img src="img/arrow-down.svg"></button>' : '<button class="slick-next"><img src="img/arrow-down.svg"></button>',
+		// prevArrow: location.host == "xn----8sbah1brndjri.xn--p1ai" ? '<button class="slick-prev"><img src="/assets/templates/lp/img/arrow-top.svg"></button>' : '<button class="slick-prev"><img src="img/arrow-top.svg"></button>',
+		// nextArrow: location.host == "xn----8sbah1brndjri.xn--p1ai" ? '<button class="slick-next"><img src="/assets/templates/lp/img/arrow-down.svg"></button>' : '<button class="slick-next"><img src="img/arrow-down.svg"></button>',
 		responsive: [
 		{
 			breakpoint: 1200,
@@ -276,8 +279,10 @@ jQuery(function($) {
 		vertical: true,
 		verticalSwiping: true,
 		// centerMode: true,
-		prevArrow: location.host == "xn----8sbah1brndjri.xn--p1ai" ? '<button class="slick-prev"><img src="/assets/templates/lp/img/arrow-top.svg"></button>' : '<button class="slick-prev"><img src="img/arrow-top.svg"></button>',
-		nextArrow: location.host == "xn----8sbah1brndjri.xn--p1ai" ? '<button class="slick-next"><img src="/assets/templates/lp/img/arrow-down.svg"></button>' : '<button class="slick-next"><img src="img/arrow-down.svg"></button>',
+		prevArrow: location.host == "xn----8sbah1brndjri.xn--p1ai" ? '<button class="slick-prev"><img src="img/arrow-top.svg"></button>' : '<button class="slick-prev"><img src="img/arrow-top.svg"></button>',
+		nextArrow: location.host == "xn----8sbah1brndjri.xn--p1ai" ? '<button class="slick-next"><img src="img/arrow-down.svg"></button>' : '<button class="slick-next"><img src="img/arrow-down.svg"></button>',
+		// prevArrow: location.host == "xn----8sbah1brndjri.xn--p1ai" ? '<button class="slick-prev"><img src="/assets/templates/lp/img/arrow-top.svg"></button>' : '<button class="slick-prev"><img src="img/arrow-top.svg"></button>',
+		// nextArrow: location.host == "xn----8sbah1brndjri.xn--p1ai" ? '<button class="slick-next"><img src="/assets/templates/lp/img/arrow-down.svg"></button>' : '<button class="slick-next"><img src="img/arrow-down.svg"></button>',
 		responsive: [
 		{
 			breakpoint: 992,
@@ -301,12 +306,13 @@ jQuery(function($) {
 	$('.cases__preview--item').click(function(){
 
 		let th         = $(this),
-			img        = th.css('background-image').split(/\//).slice(-2).join("/").slice(0, -2),
+			img        = th.css('background-image').split(/\//).slice(-3).join("/").slice(0, -2),
 			writingoff = th.find('.writingoff strong').text(),
 			debt       = th.find('.debt strong').text(),
 			casenumber = th.find('.casenumber strong').text();
 		
 		$('.cases__viewing img').attr('src', img);
+		$('.cases__viewing a').attr('href', img);
 		$('.cases__viewing .writingoff strong').text(writingoff);
 		$('.cases__viewing .debt strong').text(debt);
 		$('.cases__viewing .casenumber strong').text(casenumber);
@@ -341,15 +347,21 @@ jQuery(function($) {
 			url: "https://www.googleapis.com/youtube/v3/videos?id="+vid+"&key="+api+"&fields=items(snippet(title))&part=snippet", 
 			dataType: "jsonp",
 			success: function(data){
-				let title = data.items[0].snippet.title;
+				try	{
+					let title = data.items[0].snippet.title;
+				} catch(e) {
+					title = false;
+				}
 				if (title) {
 					th.find('span').text(title);
 				}else{
-					th.find('span').text('Видео с YouTube');
+					th.find('span').text('');
 				}
 			}
 		});
 
 	});
+
+	$('.lazyload').lazyload();
 
 });
