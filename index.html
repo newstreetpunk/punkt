@@ -2,21 +2,23 @@
 <html lang="ru">
 
 <head>
-    
-    <base href="dist/" />
+	
+	<base href="dist/" />
 
-    <meta charset="utf-8">
-    
-    <title>Пункт Права / Банкроты</title>
-    <meta name="description" content="">
+	<meta charset="utf-8">
+	
+	<title>Пункт Права / Банкроты</title>
+	<meta name="description" content="">
 	<meta property="og:image" content="img/banner_bg.jpg" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
 
-    <link rel="stylesheet" href="css/main.min.css">
+	<link rel="stylesheet" href="css/main.min.css">
+
+	<script src="https://cdn.zingchart.com/zingchart.min.js"></script>
 
 </head>
 
@@ -562,6 +564,16 @@
 			<!-- /.quality__minusi -->
 		</section>
 		<!-- /#quality.quality -->
+
+		<div class="anchor" id="stages"></div>
+		<section class="stages" style="background-image: url(img/stage_bg.png);">
+			<div class="container">
+				<h2>Этапы нашей работы</h2>
+				<div id="myarea"></div>
+			</div>
+			<!-- /.container -->
+		</section>
+		<!-- /.stages -->
 
 		<div class="anchor" id="price"></div>
 		<section class="price">
@@ -1338,8 +1350,91 @@
 	</div>
 
 	<!-- MODALS END -->
+	
+	<script src="js/scripts.min.js"></script>
 
-    <script src="js/scripts.min.js"></script>
+	<script>
+		var myTheme = {
+			graph: {
+				backgroundColor: 'transparent'
+			}
+		};
+			
+		let myConfig = {
+			type: 'area',
+			title: {
+				text: 'Data Basics',
+				fontSize: 24,
+			},
+			legend: {
+				draggable: false,
+				width: 0,
+				height: 0,
+				opacity: 0
+			},
+
+	scaleX: {
+		// Set scale label
+		label: { text: 'Days' },
+		// Convert text on scale indices
+		// labels: [ 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun' ]
+	},
+	scaleY: {
+		// Scale label with unicode character
+		// label: { text: 'Temperature (°F)' }
+	},
+	plot: {
+		// Animation docs here:
+		// https://www.zingchart.com/docs/tutorials/styling/animation#effect
+		animation: {
+			effect: 'ANIMATION_EXPAND_BOTTOM',
+			method: 'ANIMATION_STRONG_EASE_OUT',
+			sequence: 'ANIMATION_BY_NODE',
+			speed: 275,
+		},
+		'value-box': {
+			text: "%k",
+			'font-color': "#666699",
+			'font-family': "Georgia",
+			'font-size': 15,
+			'font-weight': "normal",
+			'font-style': "normal"
+		},
+		marker: {
+			size: 10,
+			backgroundColor: 'red'
+		},
+		rules: {
+			backgroundColor: 'red'
+		}
+
+	},
+	series: [
+	{
+		  // Plot 1 values, linear data
+		  values: [
+		  [ 'Mon', 23 ],
+		  [ 'Tue', 20 ],
+		  [ 'Wed', 27 ],
+		  [ 'Thu', 29 ],
+		  [ 'Fri', 25 ],
+		  [ 'Sat', 17 ],
+		  [ 'Sun', 15 ]
+		  ],
+		  
+		}
+		]
+	};
+
+	// Render Method[3]
+	zingchart.render({
+		id: 'myarea',
+		data: myConfig,      
+		height: '100%',
+		width: '100%',
+		defaults: myTheme
+	});
+</script>
 
 </body>
 
