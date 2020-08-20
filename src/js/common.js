@@ -347,11 +347,11 @@ jQuery(function($) {
 			url: "https://www.googleapis.com/youtube/v3/videos?id="+vid+"&key="+api+"&fields=items(snippet(title))&part=snippet", 
 			dataType: "jsonp",
 			success: function(data){
-				try	{
+				// try	{
 					let title = data.items[0].snippet.title;
-				} catch(e) {
-					title = false;
-				}
+				// } catch(e) {
+				// 	title = false;
+				// }
 				if (title) {
 					th.find('span').text(title);
 				}else{

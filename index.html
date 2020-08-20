@@ -566,8 +566,8 @@
 		<div class="anchor" id="stages"></div>
 		<section class="stages" style="background-image: url(img/stage_bg.jpg);">
 				<h2>Этапы нашей работы</h2>
-				<div class="stages__block">
-					<img src="img/mountain.png" alt="ALT">
+				<div class="stages__block" id="stages__block">
+					<img src="img/mountain.png" alt="ALT" class="stages__img">
 				</div>
 		</section>
 		<!-- /.stages -->
@@ -1349,6 +1349,43 @@
 	<!-- MODALS END -->
 	
 	<script src="js/scripts.min.js"></script>
+	
+	<script src="js/scrollmagic/uncompressed/plugins/TweenMax.min.js"></script>
+	<script src="js/scrollmagic/uncompressed/ScrollMagic.js"></script>
+	<script src="js/scrollmagic/uncompressed/plugins/animation.gsap.js"></script>
+
+	<script>
+
+		$(function () {
+
+		function customMagic(){
+			if ($(window). width() < 992) {
+				// init
+				var controller = new ScrollMagic.Controller();
+				// define movement of panels
+				var wipeAnimation = new TimelineMax()
+				// .fromTo("section.panel.turqoise", 1, {x: "-100%"}, {x: "0%", ease: Linear.easeNone})  // in from left
+				.fromTo(".stages__img", 0.1, {x:  "0%"}, {x: "-50px", ease: Linear.easeNone})  // in from right
+				// .fromTo("section.panel.bordeaux", 1, {y: "-100%"}, {y: "0%", ease: Linear.easeNone}); // in from top
+
+				// create scene to pin and link animation
+				new ScrollMagic.Scene({
+					triggerElement: "#stages__block",
+					triggerHook: "onLeave",
+					duration: "300%"
+				})
+				.setPin("#stages__block")
+				.setTween(wipeAnimation)
+				// .addIndicators() // add indicators (requires plugin)
+				.addTo(controller);
+			}
+		}
+
+		customMagic();
+
+		});
+
+	</script>
 
 </body>
 
