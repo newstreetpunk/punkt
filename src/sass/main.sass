@@ -700,21 +700,19 @@
 .stages
 	position: relative
 	min-height: 1090px
-	height: 100vh
+	height: auto
 	background-color: $tr-blue
 	background-size: cover
 	background-position: right top
-	// svg
-	// 	position: absolute
-	// 	left: 0
-	// 	bottom: 0
-#myarea
-	position: absolute
-	width: 100%
-	height: 85%
-	left: 0
-	bottom: 0
-	background-color: transparent !important
+	&__block
+		position: relative
+		width: 100%
+		height: auto
+		right: 0
+		bottom: 0
+		img
+			margin: 0 auto
+			width: 100%
 
 // PRICE
 .price
