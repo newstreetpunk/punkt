@@ -16,7 +16,7 @@
 	<!-- Favicon -->
 	<link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
 
-	<link rel="stylesheet" href="css/main.min.css">
+	<link rel="stylesheet" href="css/main.min.css?20082020">
 
 </head>
 
@@ -1367,7 +1367,7 @@
 				// define movement of panels
 				var wipeAnimation = new TimelineMax()
 				// .fromTo("section.panel.turqoise", 1, {x: "-100%"}, {x: "0%", ease: Linear.easeNone})  // in from left
-				.fromTo(".stages__img", 1, {x:  "0"}, {x: rightTo, y: topTo * 2.25, ease: Linear.easeNone})  // in from right
+				.fromTo(".stages__img", 1, {x:  "0"}, {x: rightTo, y: topTo * 2, ease: Linear.easeNone})  // in from right
 				// .fromTo("section.panel.bordeaux", 1, {y: "-100%"}, {y: "0%", ease: Linear.easeNone}); // in from top
 
 				// create scene to pin and link animation
@@ -1388,7 +1388,7 @@
 		}
 
 		$(window).resize(function(){
-			if ($(this).width() < 992) {
+			if ($(window).width() < 992) {
 				customMagic();
 			}			
 		});
