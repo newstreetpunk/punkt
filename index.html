@@ -1367,17 +1367,17 @@
 				// define movement of panels
 				var wipeAnimation = new TimelineMax()
 				// .fromTo("section.panel.turqoise", 1, {x: "-100%"}, {x: "0%", ease: Linear.easeNone})  // in from left
-				.fromTo(".stages__block", 0.1, {x:  "-50"}, {x: rightTo, y: topTo * 2.25, ease: Linear.easeNone})  // in from right
+				.fromTo(".stages__img", 1, {x:  "0"}, {x: rightTo, y: topTo * 2.25, ease: Linear.easeNone})  // in from right
 				// .fromTo("section.panel.bordeaux", 1, {y: "-100%"}, {y: "0%", ease: Linear.easeNone}); // in from top
 
 				// create scene to pin and link animation
 				new ScrollMagic.Scene({
-					triggerElement: ".stages",
+					triggerElement: ".stages__block",
 					triggerHook: "onLeave",
 					offset: 0,
 					duration: "100%"
 				})
-				.setPin(".stages")
+				.setPin(".stages__block")
 				.setTween(wipeAnimation)
 				// .addIndicators() // add indicators (requires plugin)
 				.addTo(controller);

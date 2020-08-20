@@ -698,11 +698,6 @@
 
 // stages
 .stages
-	// position: relative
-	min-height: 500px
-	height: auto
-	width: 100%
-	overflow: hidden
 	background-color: $tr-blue
 	background-size: cover
 	background-repeat: no-repeat
@@ -710,9 +705,11 @@
 	padding-bottom: 0
 	padding-top: 0
 	&__block
+		position: relative
 		width: 100%
+		min-height: 500px
 		height: auto
-		position: absolute
+		overflow: hidden
 	img
 		// margin: 0 auto
 		min-width: 992px
@@ -720,6 +717,7 @@
 		width: 100%
 		min-height: 500px
 		height: auto
+		position: absolute
 
 // PRICE
 .price
