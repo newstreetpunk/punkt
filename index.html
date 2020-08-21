@@ -1368,7 +1368,7 @@
 				// define movement of panels
 				var wipeAnimation = new TimelineMax()
 				// .fromTo("section.panel.turqoise", 1, {x: "-100%"}, {x: "0%", ease: Linear.easeNone})  // in from left
-				.fromTo(".stages__img", 0.5, {x:  "0"}, {x: rightTo, ease: Linear.easeInOut})  // in from right
+				.fromTo(".stages__img", 0.5, {x:  "0"}, {x: rightTo, y: 0, ease: Linear.easeInOut})  // in from right
 				// .fromTo("section.panel.bordeaux", 1, {y: "-100%"}, {y: "0%", ease: Linear.easeNone}); // in from top
 
 				// create scene to pin and link animation
@@ -1376,7 +1376,7 @@
 					triggerElement: ".stages",
 					triggerHook: "onLeave",
 					offset: 0,
-					duration: "300%"
+					duration: "100"
 				})
 				.setPin(".stages")
 				.setTween(wipeAnimation)
