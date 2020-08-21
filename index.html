@@ -565,7 +565,7 @@
 
 		<div class="anchor" id="stages"></div>
 		<section class="stages" style="background-image: url(img/stage_bg.jpg);">
-				<h2>Этапы нашей работы</h2>
+				<!-- <h2>Этапы нашей работы</h2> -->
 				<div class="stages__block" id="stages__block">
 					<img src="img/mountain.png" alt="ALT" class="stages__img">
 				</div>
@@ -1368,17 +1368,17 @@
 				// define movement of panels
 				var wipeAnimation = new TimelineMax()
 				// .fromTo("section.panel.turqoise", 1, {x: "-100%"}, {x: "0%", ease: Linear.easeNone})  // in from left
-				.fromTo(".stages__img", 1, {x:  "0", y: "0"}, {x: rightTo, y: "0", ease: Linear.easeIn})  // in from right
+				.fromTo(".stages__img", 1, {x:  "0", y: "0"}, {x: rightTo, y: "150", ease: Linear.easeIn})  // in from right
 				// .fromTo("section.panel.bordeaux", 1, {y: "-100%"}, {y: "0%", ease: Linear.easeNone}); // in from top
 
 				// create scene to pin and link animation
 				new ScrollMagic.Scene({
-					triggerElement: ".stages",
+					triggerElement: ".stages__block",
 					triggerHook: "onLeave",
 					offset: '0',
 					duration: '200'
 				})
-				.setPin(".stages")
+				.setPin(".stages__block")
 				.setTween(wipeAnimation)
 				// .addIndicators() // add indicators (requires plugin)
 				.addTo(controller);
