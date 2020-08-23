@@ -12,12 +12,15 @@
 		},
 
 		scripts: {
-			src: [
+			src: src: [
 				// 'node_modules/jquery/dist/jquery.min.js',
 				base.punkt + '/src/libs/jquery/jquery-2.2.4.min.js',
 				base.punkt + '/src/libs/lazyload/lazyload.js',
 				base.punkt + '/src/libs/Magnific-Popup-master/jquery.magnific-popup.js',
-				'node_modules/slick-carousel/slick/slick.min.js',
+				'node_modules/slick-1.8.1/slick/slick.min.js',
+				base.punkt + '/src/libs/scrollmagic/uncompressed/plugins/TweenMax.min.js',
+				base.punkt + '/src/libs/scrollmagic/uncompressed/ScrollMagic.js',
+				base.punkt + '/src/libs/scrollmagic/uncompressed/plugins/animation.gsap.js',
 				base.punkt + '/src/libs/sweetalert.min.js',
 				base.punkt + '/src/js/map.js',
 				base.punkt + '/src/js/common.js',

@@ -362,6 +362,54 @@ jQuery(function($) {
 
 	});
 
+
+	winHeight = $(window).height() - 150;
+	widthImg  = winHeight * 2;
+	rightTo  = winWidth - widthImg;
+
+	function imgResize(img) {
+		$(img).css({
+			'height': winHeight,
+			'min-width': widthImg
+		});
+	}
+
+	function customMagic(){
+		// init
+		var controller = new ScrollMagic.Controller({
+			globalSceneOptions: {
+				triggerElement: ".stages__block",
+				triggerHook: 'onLeave',
+				offset: '-150',
+				duration: '50'
+			}});
+		// define movement of panels
+		var wipeAnimation = new TimelineMax()
+			// .fromTo("section.panel.turqoise", 1, {x: "-100%"}, {x: "0%", ease: Linear.easeNone})  // in from left
+			.fromTo(".stages__img", 1, {left:  "0", top: "0"}, {left: rightTo, top: "0"});  // in from right
+			// .fromTo("section.panel.bordeaux", 1, {y: "-100%"}, {y: "0%", ease: Linear.easeNone}); // in from top
+
+		// create scene to pin and link animation
+		new ScrollMagic.Scene()
+			.setPin(".stages__block")
+			.setTween(wipeAnimation)
+			// .addIndicators() // add indicators (requires plugin)
+			.addTo(controller);
+	}
+
+	if ($(window).width() < 992) {
+		imgResize('.stages__img');
+		customMagic();
+	}
+
+	$(window).resize(function(){
+		imgResize('.stages__img');
+		if ($(window).width() < 992) {
+			customMagic();
+		}			
+	});
+
+
 	$('.lazyload').lazyload();
 
 });

@@ -710,25 +710,42 @@
 	background-position: top left
 	padding-bottom: 0
 	&__block
-		height: calc(100vh - 150px)
-		width: 100%
-		overflow-x: hidden
-		overflow-y: hidden
-		-webkit-overflow-scrolling: touch
-		// padding-bottom: 150px
-		img
-			// margin: 0 auto
-			// min-width: 200%
-			// display: inline-block
-			// min-height: 500px
-			// height: 100%
+		height: auto
+		position: relative
+		+media-breakpoint-down(md)
+			height: calc(100vh - 150px)
 			width: 100%
-			position: absolute
+			overflow-x: hidden
+			overflow-y: hidden
+			-webkit-overflow-scrolling: touch
+		img
+			width: 100%
+			height: auto
+			+media-breakpoint-down(md)
+				position: absolute
+	&-btn
+		position: absolute
+		top: 10vw
+		left: 10%
+		font-size: em(22)
+		line-height: 1
+		text-align: center
+		padding-top: 30px
+		padding-bottom: 30px
+		span
+			width: 100%
+			justify-content: space-between
+			margin-top: 15px
+		b
+			font-size: em(36)
+		small
+			font-size: em(14)
+			line-height: 1.2
+			margin-top: 5px
+			text-align: left
+
 .scrollmagic-pin-spacer
-	// top: 150px !important
-	// padding-top: 0 !important
 	height: auto !important
-	// min-height: 0 !important
 
 // PRICE
 .price
