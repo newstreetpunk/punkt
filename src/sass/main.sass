@@ -17,10 +17,14 @@
 	z-index: 10
 	+media-breakpoint-down(lg)
 		padding: 20px 0
+	+media-breakpoint-down(md)
+		height: 92px
 	+media-breakpoint-down(sm)
 		background-color: $white
+		height: 156px
 	+media-breakpoint-down(xs)
 		padding: 10px 0 !important
+		height: 132px
 	.container
 		max-width: 95%
 		+media-breakpoint-down(xs)
@@ -707,31 +711,56 @@
 	background-color: $tr-blue
 	background-size: cover
 	background-repeat: no-repeat
-	background-position: top left
+	background-position: center
 	padding-bottom: 0
+	+media-breakpoint-down(md)
+		h2
+			margin-bottom: 0
 	&__block
 		height: auto
 		position: relative
 		+media-breakpoint-down(md)
-			height: calc(100vh - 150px)
+			height: calc(100vh - 92px)
 			width: 100%
-			overflow-x: hidden
-			overflow-y: hidden
+			overflow: hidden
 			-webkit-overflow-scrolling: touch
-		img
+		+media-breakpoint-down(sm)
+			height: calc(100vh - 156px)
+		+media-breakpoint-down(xs)
+			height: calc(100vh - 132px)
+		.mountain
 			width: 100%
 			height: auto
 			+media-breakpoint-down(md)
 				position: absolute
+				min-width: calc(100vh * 2)
+				width: 100%
+				height: calc(100vh - 166px)
+				left: 0
+				top: 0
+			+media-breakpoint-down(sm)
+				height: calc(100vh - 156px)
+			+media-breakpoint-down(xs)
+				height: calc(100vh - 132px)
 	&-btn
 		position: absolute
-		top: 10vw
+		top: 3%
 		left: 10%
-		font-size: em(22)
+		font-size: em(20)
 		line-height: 1
 		text-align: center
-		padding-top: 30px
-		padding-bottom: 30px
+		padding-top: 20px
+		padding-bottom: 20px
+		+media-breakpoint-down(sm)
+			left: 15%
+		img
+			max-width: 500px
+			width: 90%
+			+media-breakpoint-down(sm)
+				max-width: 350px
+			+media-breakpoint-down(xs)
+				max-width: 80%
+				width: 100%
 		&:after
 			+media-breakpoint-down(xs)
 				left: 15px !important
@@ -741,12 +770,11 @@
 			padding-top: 15px
 			padding-bottom: 15px
 		+media-breakpoint-down(md)
-			top: 30px
+			top: 0
+			left: 0
 		+media-breakpoint-down(xs)
 			font-size: em(12)
 			padding: 15px 20px
-			left: 50%
-			transform: translateX(-50%)
 		span
 			width: 100%
 			justify-content: space-between
@@ -760,10 +788,34 @@
 		small
 			font-size: em(14)
 			line-height: 1.2
-			margin-top: 5px
+			margin-top: 3px
 			text-align: left
 			+media-breakpoint-down(lg)
 				margin-top: 0
+	&__present
+		position: absolute
+		max-width: 350px
+		width: 90%
+		height: auto
+		right: 10%
+		bottom: 10%
+		text-align: center
+		+media-breakpoint-down(lg)
+			right: 3%
+		+media-breakpoint-down(md)
+			right: 0
+			bottom: 0
+		img
+			width: 130px
+			height: auto
+			margin: 0 auto 20px
+		.btn
+			line-height: 1.2
+			text-align: center
+			font-size: em(20)
+			+media-breakpoint-down(lg)
+				font-size: em(16)
+				padding: 10px 20px
 
 .scrollmagic-pin-spacer
 	height: auto !important

@@ -363,33 +363,22 @@ jQuery(function($) {
 	});
 
 
-	winHeight = $(window).height() - 150;
-	widthImg  = winHeight * 2;
-	rightTo  = winWidth - widthImg;
-
-	function imgResize(img) {
-		$(img).css({
-			'height': winHeight,
-			'min-width': widthImg
-		});
-	}
+	let mountainWidth = $('.mountain').width();
+	let rightTo = winWidth - mountainWidth + 90;
 
 	function customMagic(){
-		// init
 		var controller = new ScrollMagic.Controller({
 			globalSceneOptions: {
 				triggerElement: ".stages__block",
 				triggerHook: 'onLeave',
-				offset: '-150',
-				duration: '50'
+				offset: '-137',
+				duration: '100%'
 			}});
-		// define movement of panels
 		var wipeAnimation = new TimelineMax()
-			// .fromTo("section.panel.turqoise", 1, {x: "-100%"}, {x: "0%", ease: Linear.easeNone})  // in from left
-			.fromTo(".stages__img", 1, {left:  "0", top: "0"}, {left: rightTo, top: "0"});  // in from right
-			// .fromTo("section.panel.bordeaux", 1, {y: "-100%"}, {y: "0%", ease: Linear.easeNone}); // in from top
+			.to(".mountain", 1, {x: rightTo, ease: Linear.easeNone})  // in from right
+			.fromTo(".stages-btn", 0.5, {x:'10%', y: "30%"}, {x:'10%', y: "-150%", ease: Linear.easeNone},'-=.8')  // in to top
+			.fromTo(".stages__present", 1, {x: "-5%", y: "150%"}, {x: "-5%", y: "-20%", ease: Linear.easeNone},'-=.7', '0'); // in from bottom
 
-		// create scene to pin and link animation
 		new ScrollMagic.Scene()
 			.setPin(".stages__block")
 			.setTween(wipeAnimation)
@@ -398,17 +387,8 @@ jQuery(function($) {
 	}
 
 	if ($(window).width() < 992) {
-		imgResize('.stages__img');
 		customMagic();
 	}
-
-	$(window).resize(function(){
-		imgResize('.stages__img');
-		if ($(window).width() < 992) {
-			customMagic();
-		}			
-	});
-
 
 	$('.lazyload').lazyload();
 
