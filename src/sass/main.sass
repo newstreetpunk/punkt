@@ -732,17 +732,38 @@
 		text-align: center
 		padding-top: 30px
 		padding-bottom: 30px
+		&:after
+			+media-breakpoint-down(xs)
+				left: 15px !important
+				bottom: 10px !important
+		+media-breakpoint-down(lg)
+			font-size: em(16)
+			padding-top: 15px
+			padding-bottom: 15px
+		+media-breakpoint-down(md)
+			top: 30px
+		+media-breakpoint-down(xs)
+			font-size: em(12)
+			padding: 15px 20px
+			left: 50%
+			transform: translateX(-50%)
 		span
 			width: 100%
 			justify-content: space-between
 			margin-top: 15px
+			+media-breakpoint-down(lg)
+				margin-top: 10px
 		b
 			font-size: em(36)
+			+media-breakpoint-down(lg)
+				font-size: em(34)
 		small
 			font-size: em(14)
 			line-height: 1.2
 			margin-top: 5px
 			text-align: left
+			+media-breakpoint-down(lg)
+				margin-top: 0
 
 .scrollmagic-pin-spacer
 	height: auto !important
