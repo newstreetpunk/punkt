@@ -745,14 +745,16 @@
 			height: auto
 			+media-breakpoint-down(md)
 				position: absolute
-				min-width: calc(100vh * 2)
+				min-width: calc((100vh - 92px) * 2)
 				width: 100%
 				height: calc(100vh - 92px)
 				left: 0
 				top: 0
 			+media-breakpoint-down(sm)
+				min-width: calc((100vh - 156px) * 2)
 				height: calc(100vh - 156px)
 			+media-breakpoint-down(xs)
+				min-width: calc((100vh - 132px) * 2)
 				height: calc(100vh - 132px)
 	&-btn
 		position: absolute
@@ -830,7 +832,7 @@
 			height: auto
 			margin: 0 auto 20px
 			+media-breakpoint-down(xs)
-				width: 80px
+				width: 60px
 		.btn
 			line-height: 1.2
 			text-align: center
@@ -839,7 +841,7 @@
 				font-size: em(16)
 				padding: 10px 20px
 			+media-breakpoint-down(xs)
-				font-size: em(12)
+				font-size: em(10)
 
 .scrollmagic-pin-spacer
 	height: auto !important
