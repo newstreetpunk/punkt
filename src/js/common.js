@@ -320,7 +320,6 @@ jQuery(function($) {
 	});
 
 	$('a.scroll').bind("click", function(e){
-		$('.mobile-btn').click();
 		$('.header__menu li.active').toggleClass('active');
 		var anchor = $(this);
 		anchor.parent().toggleClass('active');
@@ -328,6 +327,13 @@ jQuery(function($) {
 			scrollTop: $(anchor.attr('href')).offset().top}, 1000);
 		e.preventDefault();
 	});
+
+	$('.header__menu li').click(function(){
+		if ($('.header__menu').is(':visible')) {
+			$('.header__menu').removeClass('open');
+			$('.mobile-btn').removeClass('active');
+		}
+	});	
 
 	$('.faq__question').click(function(){
 		if ($(this).hasClass('active')) {

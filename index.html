@@ -575,7 +575,7 @@
 
 				<div class="stages__present">
 					<img src="img/kubok.svg" alt="Приз">
-					<a href="javascript:void(0)" class="btn">Пройди квиз и получи <br>месяц в подарок</a>
+					<a href="#popup:marquiz_5f16006ab38f860044decbdc" class="btn">Пройди квиз и получи <br>месяц в подарок</a>
 				</div>
 
 			</div>				
@@ -1359,6 +1359,21 @@
 	<!-- MODALS END -->
 	
 	<script src="js/scripts.min.js"></script>
+
+	<!-- Marquiz script start -->
+	<script src="//script.marquiz.ru/v1.js" type="application/javascript"></script>
+	<script>
+		document.addEventListener("DOMContentLoaded", function() {
+			Marquiz.init({ 
+				host: '//quiz.marquiz.ru', 
+				id: '5f16006ab38f860044decbdc', 
+				autoOpen: false, 
+				autoOpenFreq: 'once', 
+				openOnExit: false 
+			});
+		});
+	</script>
+	<!-- Marquiz script end -->
 
 </body>
 

@@ -78,6 +78,8 @@
 				justify-content: center
 			li
 				margin: 0 25px
+				@media (max-width: 1600px)
+					margin: 0 15px
 				a
 					text-transform: uppercase
 					font-size: em(15)
@@ -136,6 +138,8 @@
 			font-size: em(30)
 			line-height: 1.2
 			transition: all .2s
+			@media (max-width: 1600px)
+				font-size: em(28)
 			+media-breakpoint-down(md)
 				font-size: em(20)
 			+media-breakpoint-down(xs)
@@ -217,12 +221,14 @@
 		span
 			font-size: 3.125vmax
 			letter-spacing: -0.02em
+			@media (max-width: 1600px)
+				font-size: 3vmax
 			+media-breakpoint-down(xs)
 				width: 100%
 				font-size: em(20)
 		strong
 			display: block
-			font-size: 2.08vmax
+			font-size: 2vmax
 			padding: 0 20px
 			+media-breakpoint-down(xs)
 				font-size: em(16)
@@ -265,8 +271,11 @@
 		height: 130px !important
 		background-color: transparent !important
 		background-image: none !important
+		text-align: center
 		&:before
 			display: none !important
+		@media (max-width: 1600px)
+			margin-left: 6% !important
 		+media-breakpoint-down(lg)
 			margin-left: 6% !important
 		+media-breakpoint-down(xs)
@@ -283,13 +292,14 @@
 		span
 			font-size: em(12)
 			display: inline-block !important
-			margin-top: -25px
-			border-bottom: 1px solid transparent
+			margin: -25px auto 0
+			border-bottom: 1px solid $text
 			text-transform: uppercase
 			line-height: 1.2
 			transition: all .25s ease
-			+media-breakpoint-down(lg)
-				margin-top: -15px
+			left: 50% !important
+			transform: translateX(-50%)
+			max-width: 180px
 
 // PROCESS
 .process
@@ -602,6 +612,7 @@
 	&__minusi
 		position: relative
 		background-position: right top
+		background-repeat: no-repeat
 		+media-breakpoint-down(xs)
 			background-size: cover
 		.bg-btn
@@ -634,6 +645,7 @@
 	&__plusi
 		position: relative
 		background-position: left top
+		background-repeat: no-repeat
 		+media-breakpoint-down(xs)
 			background-size: cover
 		.container
@@ -735,7 +747,7 @@
 				position: absolute
 				min-width: calc(100vh * 2)
 				width: 100%
-				height: calc(100vh - 166px)
+				height: calc(100vh - 92px)
 				left: 0
 				top: 0
 			+media-breakpoint-down(sm)
@@ -751,12 +763,20 @@
 		text-align: center
 		padding-top: 20px
 		padding-bottom: 20px
+		&:hover
+			img
+				transform: scale(.95)
 		+media-breakpoint-down(sm)
 			left: 15%
 		img
 			max-width: 500px
-			width: 90%
-			+media-breakpoint-down(sm)
+			width: 100%
+			transform: scale(1)
+			transition: all .3s ease-in-out
+			filter: drop-shadow(5px 5px 20px rgba(0,0,0,.5))
+			@media (max-width: 1600px)
+				max-width: 400px
+			+media-breakpoint-down(lg)
 				max-width: 350px
 			+media-breakpoint-down(xs)
 				max-width: 80%
@@ -809,6 +829,8 @@
 			width: 130px
 			height: auto
 			margin: 0 auto 20px
+			+media-breakpoint-down(xs)
+				width: 80px
 		.btn
 			line-height: 1.2
 			text-align: center
@@ -816,6 +838,8 @@
 			+media-breakpoint-down(lg)
 				font-size: em(16)
 				padding: 10px 20px
+			+media-breakpoint-down(xs)
+				font-size: em(12)
 
 .scrollmagic-pin-spacer
 	height: auto !important
