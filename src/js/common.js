@@ -344,6 +344,18 @@ jQuery(function($) {
 		
 	});
 
+	/* загружать название видео только когда долистал до видео */
+	var target = $('.faq__video');
+	var getTitle = false;
+	var targetPos = target.offset().top;
+	var winHeight = $(window).height();
+	var scrollToElem = targetPos - winHeight;
+	$(window).scroll(function(){
+		var winScrollTop = $(this).scrollTop();
+		if(winScrollTop > scrollToElem && !getTitle){
+			//сработает когда пользователь доскроллит к элементу с классом .faq__video
+			getTitle = true;
+
 	$('.faq__video--item').each(function(){
 		let th  = $(this),
 			vid = th.attr('href').split('='),
@@ -353,12 +365,9 @@ jQuery(function($) {
 			url: "https://www.googleapis.com/youtube/v3/videos?id="+vid+"&key="+api+"&fields=items(snippet(title))&part=snippet", 
 			dataType: "jsonp",
 			success: function(data){
-				// try	{
+				th.removeClass('faq__video--notitle');
+				if (!data.error) {
 					let title = data.items[0].snippet.title;
-				// } catch(e) {
-				// 	title = false;
-				// }
-				if (title) {
 					th.find('span').text(title);
 				}else{
 					th.find('span').text('');
@@ -367,6 +376,12 @@ jQuery(function($) {
 		});
 
 	});
+
+		}
+	});
+	/* загружать название видео только когда долистал до видео конец */
+
+
 
 
 	let mountainWidth = $('.mountain').width();
