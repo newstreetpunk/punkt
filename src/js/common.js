@@ -381,9 +381,6 @@ jQuery(function($) {
 	});
 	/* загружать название видео только когда долистал до видео конец */
 
-
-
-
 	let mountainWidth = $('.mountain').width();
 	let rightTo = winWidth - mountainWidth + 90;
 
