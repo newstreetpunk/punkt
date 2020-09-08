@@ -188,7 +188,7 @@ jQuery(function($) {
 		return false;
 	});
 
-	$('.video-link').magnificPopup({
+	$('.video-link, .banner-video').magnificPopup({
 		disableOn: 700,
 		type: 'iframe',
 		mainClass: 'mfp-fade',

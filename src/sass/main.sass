@@ -61,6 +61,7 @@
 			right: -100%
 			transition: all .2s ease-in-out
 			z-index: 9999
+			margin-right: 0
 			&.open
 				right: 0
 		ul
@@ -177,6 +178,7 @@
 	background-image: url(../img/main-fon.jpg)
 	min-height: 800px
 	height: 100vh
+	width: 100%
 	background-size: cover
 	background-position: center
 	position: relative
@@ -253,8 +255,11 @@
 	&__btn-wrap
 		position: relative
 		z-index: 1
+		width: fit-content
+		justify-content: space-between
 		+media-breakpoint-down(xs)
 			flex-direction: column
+			width: 100%
 	&-free
 		text-transform: uppercase
 		padding: 10px 40px
@@ -266,42 +271,39 @@
 			line-height: 1
 	&-video
 		text-decoration: none
-		margin-left: 70px !important
-		margin-top: -30px !important
-		max-width: none !important
-		width: 250px !important
-		height: 130px !important
-		background-color: transparent !important
-		background-image: none !important
+		margin-left: 70px
+		margin-top: -30px
+		max-width: none
+		width: 250px
+		height: 130px
 		text-align: center
-		&:before
-			display: none !important
 		@media (max-width: 1600px)
-			margin-left: 6% !important
+			margin-left: 6%
 		+media-breakpoint-down(lg)
-			margin-left: 6% !important
+			margin-left: 6%
+			margin-top: 0
 		+media-breakpoint-down(xs)
-			margin-top: 10px !important
+			margin-top: 10px
 		&:hover
 			color: $text
 			span
 				border-color: transparent
 		img
-			margin: 0 auto
-			width: 130px
+			margin: 0 auto -20px
+			width: 120px
 			+media-breakpoint-down(lg)
 				width: 100px
+				margin-bottom: -10px
 		span
 			font-size: em(12)
-			display: inline-block !important
-			margin: -25px auto 0
 			border-bottom: 1px solid $text
 			text-transform: uppercase
 			line-height: 1.2
+			font-weight: 700
 			transition: all .25s ease
-			left: 50% !important
-			transform: translateX(-50%)
-			max-width: 180px
+			+media-breakpoint-down(xs)
+				color: $white
+				border-bottom: 1px solid $white
 
 // PROCESS
 .process
@@ -1347,6 +1349,7 @@
 			z-index: 1
 			padding: 15px
 			border-radius: 0 !important
+			border: none !important
 			+media-breakpoint-down(lg)
 				margin: 0 10px
 				height: 160px !important
@@ -1502,7 +1505,7 @@
 			+media-breakpoint-down(md)
 				margin: 0 15px
 			+media-breakpoint-down(sm)
-				height: 140px !important
+				// height: 140px !important
 			span
 				text-align: left
 				line-height: 1.3
