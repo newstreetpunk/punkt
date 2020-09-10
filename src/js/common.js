@@ -1,5 +1,107 @@
 jQuery(function($) {
 
+	var dataLayer = window.dataLayer || [];
+	  
+	function ymGoal(goalName,goalParams) {
+	  try {
+	    ym(60929896, 'reachGoal', goalName, goalParams||{});
+	  } catch (err) {
+	    console.error(goalName + ' - error send goal to Metrika');
+	  }
+	}
+	function ymPage(pageName,goalParams) {
+	  try {
+	    ym(60929896, 'hit', pageName, goalParams||{});
+	  } catch (err) {
+	    console.error(goalName + ' - error send page to Metrika');
+	  }
+	}
+
+	var $$$ = function(name) { return document.querySelector(name) },
+		$$ = function(name) { return document.querySelectorAll(name) };
+
+	var goals = [
+		{
+			selector: 'a[href^\="tel:"]',
+			action: 'click',
+			goal: 'phone-click',
+			title: 'Клик по телефону',
+		},
+		{
+			selector: 'a[href^\="tel:"]',
+			action: 'copy',
+			goal: 'phone-copy',
+			title: 'Копирование телефона',
+		},
+		{
+			selector: 'a[href^\="tel:"]',
+			action: 'contextmenu',
+			goal: 'phone-contextmenu',
+			title: 'Контекстное меню на телефоне',
+		},
+		{
+			selector: 'a[href^\="mailto:"]',
+			action: 'click',
+			goal: 'email-click',
+			title: 'Клик по Email',
+		},
+		{
+			selector: 'a[href^\="mailto:"]',
+			action: 'copy',
+			goal: 'email-copy',
+			title: 'Копирование Email',
+		},
+		{
+			selector: 'a[href^\="mailto:"]',
+			action: 'contextmenu',
+			goal: 'email-contextmenu',
+			title: 'Контекстное меню на Email',
+		},
+
+		{
+			selector: '.modal-link',
+			action: 'click',
+			goal: 'form-open',
+			title: 'Открыли любую форму',
+		},
+		{
+			selector: 'form',
+			action: 'submit',
+			goal: 'form-submit',
+			title: 'Отправили любую форму',
+		},
+
+		{
+			selector: '.video-link, .banner-video',
+			action: 'click',
+			goal: 'video-click',
+			title: 'Смотреть видео',
+		},
+		
+	];
+
+	goals.forEach(function(value, index, array){
+		if(value.goal != null) {
+			$$(value.selector).forEach(function(element) {
+				element.addEventListener(value.action, function(){
+					ymGoal(value.goal);
+				});
+			});
+		} else if(value.hit != null) {
+			$$(value.selector).forEach(function(element) {
+				element.addEventListener(value.action, function(){
+					dataLayer.push({
+						event:"pageView",
+						eventAction: value.hit,
+						title: value.title,
+					});
+				});
+			});
+		} else {
+
+		}
+	});
+
 	//E-mail Ajax Send
 	$("form").submit(function() { //Change
 
@@ -236,37 +338,37 @@ jQuery(function($) {
 		// prevArrow: location.host == "xn----8sbah1brndjri.xn--p1ai" ? '<button class="slick-prev"><img src="/assets/templates/lp/img/arrow-top.svg"></button>' : '<button class="slick-prev"><img src="img/arrow-top.svg"></button>',
 		// nextArrow: location.host == "xn----8sbah1brndjri.xn--p1ai" ? '<button class="slick-next"><img src="/assets/templates/lp/img/arrow-down.svg"></button>' : '<button class="slick-next"><img src="img/arrow-down.svg"></button>',
 		responsive: [
-		{
-			breakpoint: 1200,
-			settings: {
-				vertical: false,
-				verticalSwiping: false,
+			{
+				breakpoint: 1200,
+				settings: {
+					vertical: false,
+					verticalSwiping: false,
+				}
+			},
+			{
+				breakpoint: 992,
+				settings: {
+					slidesToShow: 2,
+					vertical: false,
+					verticalSwiping: false,
+				}
+			},
+			{
+				breakpoint: 768,
+				settings: {
+					slidesToShow: 3,
+					vertical: false,
+					verticalSwiping: false,
+				}
+			},
+			{
+				breakpoint: 576,
+				settings: {
+					slidesToShow: 1,
+					vertical: false,
+					verticalSwiping: false,
+				}
 			}
-		},
-		{
-			breakpoint: 992,
-			settings: {
-				slidesToShow: 2,
-				vertical: false,
-				verticalSwiping: false,
-			}
-		},
-		{
-			breakpoint: 768,
-			settings: {
-				slidesToShow: 3,
-				vertical: false,
-				verticalSwiping: false,
-			}
-		},
-		{
-			breakpoint: 576,
-			settings: {
-				slidesToShow: 1,
-				vertical: false,
-				verticalSwiping: false,
-			}
-		}
 		]
 	});
 
@@ -284,22 +386,22 @@ jQuery(function($) {
 		// prevArrow: location.host == "xn----8sbah1brndjri.xn--p1ai" ? '<button class="slick-prev"><img src="/assets/templates/lp/img/arrow-top.svg"></button>' : '<button class="slick-prev"><img src="img/arrow-top.svg"></button>',
 		// nextArrow: location.host == "xn----8sbah1brndjri.xn--p1ai" ? '<button class="slick-next"><img src="/assets/templates/lp/img/arrow-down.svg"></button>' : '<button class="slick-next"><img src="img/arrow-down.svg"></button>',
 		responsive: [
-		{
-			breakpoint: 992,
-			settings: {
-				slidesToShow: 2,
-				vertical: false,
-				verticalSwiping: false,
+			{
+				breakpoint: 992,
+				settings: {
+					slidesToShow: 2,
+					vertical: false,
+					verticalSwiping: false,
+				}
+			},
+			{
+				breakpoint: 768,
+				settings: {
+					slidesToShow: 1,
+					vertical: false,
+					verticalSwiping: false,
+				}
 			}
-		},
-		{
-			breakpoint: 768,
-			settings: {
-				slidesToShow: 1,
-				vertical: false,
-				verticalSwiping: false,
-			}
-		}
 		]
 	});
 
