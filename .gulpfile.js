@@ -152,8 +152,7 @@ function punkt_watch() {
 	watch(projects.punkt.code.src).on('change', browserSync.reload);
 };
 
-// exports.punkt_cleanimg = punkt_cleanimg;
-// exports.punkt = parallel(punkt_images, punkt_styles, punkt_scripts, punkt_browsersync, punkt_watch);
-module.exports = parallel(punkt_images, punkt_styles, punkt_scripts, punkt_browsersync, punkt_watch);
+exports.punkt_cleanimg = punkt_cleanimg;
+exports.punkt = parallel(punkt_images, punkt_styles, punkt_scripts, punkt_browsersync, punkt_watch);
 
 /* punkt END */
