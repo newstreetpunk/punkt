@@ -1,62 +1,12 @@
 $(function() {
 
-    let maps = [
-            {
-                parent: '.contacts__map',
-                id: "map",
-                position: [54.728035, 43.395951],
-                zoom: 6,
-                placemarks: [
-                    {
-                        position: [55.767241, 37.650945],
-                        balloonContentHeader: 'Пункт Права в Москве',
-                        balloonContentBody: '<a href="tel:+78002229163" style="color:#000;">☎️ 8-800-222-91-63</a><br>\
-                            <a href="mailto:info@bankrot-bg.ru" style="color:#000;">📩 info@bankrot-bg.ru</a><br><br> \
-                            ул.Садовая-Черногрязская, д.8, стр.1<br>\
-                            <a href="https://yandex.ru/maps/51/samara/?from=api-maps&ll=37.650945%2C55.767241&mode=routes&origin=jsapi_2_1_77&rtext=~55.767241%2C37.650945&rtt=auto&ruri=~&z=17"  target="_blank" style="color:#000;">📍 Проложить маршрут</a><br>',
-                        balloonContentFooter: 'ежедневно: 8:00 — 20:00',
-                        hintContent: 'Пункт Права'
-                    },
-                    {
-                        position: [53.2028,50.1486],
-                        balloonContentHeader: 'Пункт Права в Самаре',
-                        balloonContentBody: '<a href="tel:+78002229163" style="color:#000;">☎️ 8-800-222-91-63</a><br>\
-                            <a href="mailto:info@bankrot-bg.ru" style="color:#000;">📩 info@bankrot-bg.ru</a><br><br> \
-                            Заводское шоссе, 11Б<br>\
-                            <a href="https://yandex.ru/maps/51/samara/?from=api-maps&ll=50.148600%2C53.202800&mode=routes&origin=jsapi_2_1_77&rtext=~53.202800%2C50.148600&rtt=auto&ruri=~&z=17"  target="_blank" style="color:#000;">📍 Проложить маршрут</a><br>',
-                        balloonContentFooter: 'ежедневно: 8:00 — 20:00',
-                        hintContent: 'Пункт Права'
-                    },
-                    {
-                        position: [53.506878, 49.268632],
-                        balloonContentHeader: 'Пункт Права в Тольятти',
-                        balloonContentBody: '<a href="tel:+78002229163" style="color:#000;">☎️ 8-800-222-91-63</a><br>\
-                            <a href="tel:+78482792430" style="color:#000;">☎️ 8-8482-79-24-30</a><br>\
-                            <a href="mailto:info@bankrot-bg.ru" style="color:#000;">📩 info@bankrot-bg.ru</a><br><br> \
-                            Приморский бульвар, 43<br>\
-                            <a href="https://yandex.ru/maps/51/samara/?from=api-maps&ll=49.268632%2C53.506878&mode=routes&origin=jsapi_2_1_77&rtext=~53.506878%2C49.268632&rtt=auto&ruri=~&z=17"  target="_blank" style="color:#000;">📍 Проложить маршрут</a><br>',
-                        balloonContentFooter: 'ежедневно: 8:00 — 20:00',
-                        hintContent: 'Пункт Права'
-                    },
-                    {
-                        position: [53.157559, 48.462124],
-                        balloonContentHeader: 'Пункт Права в Сызрани',
-                        balloonContentBody: '<a href="tel:+78002229163" style="color:#000;">☎️ 8-800-222-91-63</a><br>\
-                            <a href="mailto:info@bankrot-bg.ru" style="color:#000;">📩 info@bankrot-bg.ru</a><br><br> \
-                            ул.Смолина, 5<br>\
-                            <a href="https://yandex.ru/maps/51/samara/?from=api-maps&ll=48.462124%2C53.157559&mode=routes&origin=jsapi_2_1_77&rtext=~53.157559%2C48.462124&rtt=auto&ruri=~&z=17"  target="_blank" style="color:#000;">📍 Проложить маршрут</a><br>',
-                        balloonContentFooter: 'ежедневно: 8:00 — 20:00',
-                        hintContent: 'Пункт Права'
-                    },
-                ],
-            },
-        ],
-        start_load_script = false, // Переменная для определения была ли хоть раз загружена Яндекс.Карта (чтобы избежать повторной загрузки при наведении)
+    let start_load_script = false, // Переменная для определения была ли хоть раз загружена Яндекс.Карта (чтобы избежать повторной загрузки при наведении)
         end_load_script = false; // Переменная для определения был ли загружен скрипт Яндекс.Карт полностью (чтобы не возникли какие-нибудь ошибки, если мы загружаем несколько карт одновременно)
 
 
     //Функция создания карты сайта и затем вставки ее в блок с идентификатором "map-yandex"
     function init() {
+        console.log([this.id, this.parent, this.placemarks.length]);
         var myMapTemp = new ymaps.Map(this.id, {
             center: this.position, // координаты центра на карте
             zoom: this.zoom, // коэффициент приближения карты

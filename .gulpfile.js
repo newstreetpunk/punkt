@@ -1,51 +1,94 @@
-	punkt: {
-		port: ++port,
+// VARIABLES & PATHS
+let preprocessor = 'sass', // Preprocessor (sass, scss, less, styl)
+    fileswatch   = 'html,htm,txt,json,md,woff2,php', // List of files extensions for watching & hard reload (comma separated)
+    pageversion  = 'html,htm,php', // List of files extensions for watching change version files (comma separated)
+    imageswatch  = 'jpg,jpeg,png,webp,svg', // List of images extensions for watching & compression (comma separated)
+    online       = true, // If «false» - Browsersync will work offline without internet connection
+    basename     = require('path').basename(__dirname),
+    forProd      = [
+					'/**',
+					' * @author Alexsab.ru',
+					' */',
+					''].join('\n');
 
-		base: base.punkt,
-		dest: base.punkt,
+const { src, dest, parallel, series, watch, task } = require('gulp'),
+	sass           = require('gulp-sass'),
+	cleancss       = require('gulp-clean-css'),
+	concat         = require('gulp-concat'),
+	browserSync    = require('browser-sync').create(),
+	uglify         = require('gulp-uglify-es').default,
+	autoprefixer   = require('gulp-autoprefixer'),
+	imagemin       = require('gulp-imagemin'),
+	newer          = require('gulp-newer'),
+	rsync          = require('gulp-rsync'),
+	del            = require('del'),
+	connect        = require('gulp-connect-php'),
+	header         = require('gulp-header'),
+	notify         = require('gulp-notify'),
+	rename         = require('gulp-rename'),
+	responsive     = require('gulp-responsive'),
+	pngquant       = require('imagemin-pngquant'),
+	merge          = require('merge-stream'),
+	// version        = require('gulp-version-number'),
+	// revAll         = require('gulp-rev-all'),
+	replace        = require('gulp-replace');
 
-		styles: {
-			src:    base.punkt + '/src/' + preprocessor + '/**/*',
-			//watch:  base.punkt + '/src/' + preprocessor + '/**/*.'+preprocessor,
-			dest:   base.punkt + '/dist/css',
-			output: 'main.min.css',
-		},
+if(typeof projects == 'undefined') 
+	global.projects = {};
+if(typeof port == 'undefined') 
+	global.port = 8100;
 
-		scripts: {
-			src: src: [
-				// 'node_modules/jquery/dist/jquery.min.js',
-				base.punkt + '/src/libs/jquery/jquery-2.2.4.min.js',
-				base.punkt + '/src/libs/lazyload/lazyload.js',
-				base.punkt + '/src/libs/Magnific-Popup-master/jquery.magnific-popup.js',
-				'node_modules/slick-carousel/slick/slick.min.js',
-				base.punkt + '/src/libs/scrollmagic/uncompressed/plugins/TweenMax.min.js',
-				base.punkt + '/src/libs/scrollmagic/uncompressed/ScrollMagic.js',
-				base.punkt + '/src/libs/scrollmagic/uncompressed/plugins/animation.gsap.js',
-				base.punkt + '/src/libs/sweetalert.min.js',
-				base.punkt + '/src/js/map.js',
-				base.punkt + '/src/js/common.js',
-			],
-			dest:       base.punkt + '/dist/js',
-			output:     'scripts.min.js',
-		},
 
-		images: {
-			src:  base.punkt + '/src/img/**/*',
-			dest: base.punkt + '/dist/img',
-		},
+projects.punkt = {
 
-		code: {
-			src: [
-				base.punkt  + '/**/*.{' + fileswatch + '}'
-			],
-		},
-		forProd: [
-			'/**',
-			' * @author https://github.com/newstreetpunk',
-			' * @editor https://github.com/alexsab',
-			' */',
-			''].join('\n'),
+	port: ++port,
+
+	base: basename,
+	dest: basename,
+
+	styles: {
+		src:    basename + '/src/' + preprocessor + '/**/*',
+		//watch:  basename + '/src/' + preprocessor + '/**/*.'+preprocessor,
+		dest:   basename + '/dist/css',
+		output: 'main.min.css',
 	},
+
+	scripts: {
+		src: [
+			// 'node_modules/jquery/dist/jquery.min.js',
+			basename + '/src/libs/jquery/jquery-2.2.4.min.js',
+			basename + '/src/libs/lazyload/lazyload.js',
+			basename + '/src/libs/Magnific-Popup-master/jquery.magnific-popup.js',
+			'node_modules/slick-carousel/slick/slick.min.js',
+			basename + '/src/libs/scrollmagic/uncompressed/plugins/TweenMax.min.js',
+			basename + '/src/libs/scrollmagic/uncompressed/ScrollMagic.js',
+			basename + '/src/libs/scrollmagic/uncompressed/plugins/animation.gsap.js',
+			basename + '/src/libs/sweetalert.min.js',
+			basename + '/src/js/map.js',
+			basename + '/src/js/common.js',
+		],
+		dest:       basename + '/dist/js',
+		output:     'scripts.min.js',
+	},
+
+	images: {
+		src:  basename + '/src/img/**/*',
+		dest: basename + '/dist/img',
+	},
+
+	code: {
+		src: [
+			basename  + '/**/*.{' + fileswatch + '}'
+		],
+	},
+	forProd: [
+		'/**',
+		' * @author https://github.com/newstreetpunk',
+		' * @editor https://github.com/alexsab',
+		' */',
+		''].join('\n'),
+}
+
 
 /* punkt BEGIN */
 
@@ -80,7 +123,7 @@ function punkt_styles() {
 function punkt_scripts() {
 	return src(projects.punkt.scripts.src)
 	.pipe(concat(projects.punkt.scripts.output))
-	.pipe(uglify()) // Minify js (opt.)
+	// .pipe(uglify()) // Minify js (opt.)
 	.pipe(header(projects.punkt.forProd))
 	.pipe(dest(projects.punkt.scripts.dest))
 	.pipe(browserSync.stream())
@@ -109,7 +152,8 @@ function punkt_watch() {
 	watch(projects.punkt.code.src).on('change', browserSync.reload);
 };
 
-exports.punkt_cleanimg = punkt_cleanimg;
-exports.punkt = parallel(punkt_images, punkt_styles, punkt_scripts, punkt_browsersync, punkt_watch);
+// exports.punkt_cleanimg = punkt_cleanimg;
+// exports.punkt = parallel(punkt_images, punkt_styles, punkt_scripts, punkt_browsersync, punkt_watch);
+module.exports = parallel(punkt_images, punkt_styles, punkt_scripts, punkt_browsersync, punkt_watch);
 
 /* punkt END */
