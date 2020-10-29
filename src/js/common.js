@@ -83,13 +83,15 @@ jQuery(function($) {
 	goals.forEach(function(value, index, array){
 		if(value.goal != null) {
 			$$(value.selector).forEach(function(element) {
-				element.addEventListener(value.action, function(){
+				element.addEventListener(value.action, function(evt) {
+					evt.preventDefault();
 					ymGoal(value.goal);
 				});
 			});
 		} else if(value.hit != null) {
 			$$(value.selector).forEach(function(element) {
-				element.addEventListener(value.action, function(){
+				element.addEventListener(value.action, function(evt) {
+					evt.preventDefault();
 					dataLayer.push({
 						event:"pageView",
 						eventAction: value.hit,
@@ -100,6 +102,57 @@ jQuery(function($) {
 		} else {
 
 		}
+	});
+
+	window.addEventListener('onBitrixLiveChat', function(event)
+	{
+		var widget = event.detail.widget;
+
+		// Обработка событий 
+		widget.subscribe({
+			type: BX.LiveChatWidget.SubscriptionType.userMessage,
+			callback: function(data) {
+				ymGoal('chat_send');
+				
+				if (typeof(dataLayer) == 'undefined')
+				{
+				  dataLayer = [];
+				}
+				dataLayer.push({
+					"ecommerce": {
+						"purchase": {
+							"actionField": {
+								"id" : "chat_send",
+								"goal_id" : "60929896"
+							},
+							"products": [ {} ]
+						}
+					}
+				});
+			}
+		});
+		widget.subscribe({
+			type: BX.LiveChatWidget.SubscriptionType.widgetOpen,
+			callback: function(data) {
+				ymGoal('chat_open');
+				
+				if (typeof(dataLayer) == 'undefined')
+				{
+				  dataLayer = [];
+				}
+				dataLayer.push({
+					"ecommerce": {
+						"purchase": {
+							"actionField": {
+								"id" : "chat_open",
+								"goal_id" : "60929896"
+							},
+							"products": [ {} ]
+						}
+					}
+				});
+			}
+		});
 	});
 
 	//E-mail Ajax Send

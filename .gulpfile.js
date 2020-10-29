@@ -78,7 +78,7 @@ projects.punkt = {
 
 	code: {
 		src: [
-			basename  + '/**/*.{' + fileswatch + '}'
+			basename  + '/**/*.{' + fileswatch + '}',
 		],
 	},
 	forProd: [
@@ -123,7 +123,7 @@ function punkt_styles() {
 function punkt_scripts() {
 	return src(projects.punkt.scripts.src)
 	.pipe(concat(projects.punkt.scripts.output))
-	// .pipe(uglify()) // Minify js (opt.)
+	.pipe(uglify()) // Minify js (opt.)
 	.pipe(header(projects.punkt.forProd))
 	.pipe(dest(projects.punkt.scripts.dest))
 	.pipe(browserSync.stream())
