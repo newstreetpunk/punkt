@@ -165,7 +165,7 @@ jQuery(function($) {
 		var replUrl = url.replace('?', '&');
 		$.ajax({
 			type: "POST",
-			url: "/mail.php", //Change
+			url: "//alexsab.ru/lead/punkt-prava/", //Change
 			data: th.serialize() +'&referer=' + replUrl
 		}).done(function( data ) {
 			// console.log( "success data:", data );
