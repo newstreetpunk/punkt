@@ -12,13 +12,12 @@ let preprocessor = 'sass', // Preprocessor (sass, scss, less, styl)
 					''].join('\n');
 
 const { src, dest, parallel, series, watch, task } = require('gulp'),
-	sass           = require('gulp-sass'),
+	sass           = require('gulp-sass')(require('sass')),
 	cleancss       = require('gulp-clean-css'),
 	concat         = require('gulp-concat'),
 	browserSync    = require('browser-sync').create(),
 	uglify         = require('gulp-uglify-es').default,
 	autoprefixer   = require('gulp-autoprefixer'),
-	imagemin       = require('gulp-imagemin'),
 	newer          = require('gulp-newer'),
 	rsync          = require('gulp-rsync'),
 	del            = require('del'),
@@ -26,8 +25,6 @@ const { src, dest, parallel, series, watch, task } = require('gulp'),
 	header         = require('gulp-header'),
 	notify         = require('gulp-notify'),
 	rename         = require('gulp-rename'),
-	responsive     = require('gulp-responsive'),
-	pngquant       = require('imagemin-pngquant'),
 	merge          = require('merge-stream'),
 	// version        = require('gulp-version-number'),
 	// revAll         = require('gulp-rev-all'),
@@ -129,17 +126,6 @@ function punkt_scripts() {
 	.pipe(browserSync.stream())
 };
 
-function punkt_images() {
-	return src(projects.punkt.images.src)
-	.pipe(newer(projects.punkt.images.dest))
-	.pipe(imagemin([
-            pngquant(),            
-        ],{
-            verbose: true
-        }))
-	.pipe(dest(projects.punkt.images.dest))
-}
-
 function punkt_cleanimg() {
 	return del('' + projects.punkt.images.dest + '/**/*', { force: true })
 }
@@ -148,11 +134,10 @@ function punkt_watch() {
 	watch(projects.punkt.styles.src, punkt_styles);
 	watch(projects.punkt.scripts.src, punkt_scripts);
 	// watch(projects.punkt.images.src, punkt_cleanimg);
-	watch(projects.punkt.images.src, punkt_images);
 	watch(projects.punkt.code.src).on('change', browserSync.reload);
 };
 
 exports.punkt_cleanimg = punkt_cleanimg;
-exports.punkt = parallel(punkt_images, punkt_styles, punkt_scripts, punkt_browsersync, punkt_watch);
+exports.punkt = parallel(punkt_styles, punkt_scripts, punkt_browsersync, punkt_watch);
 
 /* punkt END */
